@@ -1,0 +1,59 @@
+==================================================================
+OJT PORTFOLIO PROJECT NOTES
+==================================================================
+
+1. VISUALS & DESIGN PREFERENCES
+------------------------------------------------------------------
+- Theme: Deep Ocean
+- Color Palette: 
+    - Background: A smooth gradient fading from a Deep Navy Blue at the top to a Midnight Blue at the bottom.
+    - Accents (Buttons/Links): A bright, glowing Sky Blue or Cyan color for buttons so they stand out.
+    - Text/Dividers: A soft Cool Gray or off-white for text, so it's readable but not blindingly bright white.
+- Layout Style: Simple, clean, single-page layout with a modern grid for document cards
+- Mobile Responsiveness: Text and document grid should scale down and stack beautifully on mobile screens
+
+
+2. FILES & PAPERS TO INCLUDE
+------------------------------------------------------------------
+[ ] Cover Page
+[ ] Approval Sheet
+[ ] Company Profile
+[ ] Memorandum of Agreement (MOA)
+[ ] Letter of Intent (LOI)
+[ ] Letter of Endorsement (LOE)
+[ ] Student Waiver
+[ ] Internship Agreement
+[ ] Consent Form
+[ ] Curriculum Vitae (CV)
+[ ] Insurance
+[ ] Medical Certificate
+[ ] Monthly Reports
+[ ] Certificate of Completion
+[ ] Trainee Evaluation
+[ ] Performance Evaluation
+
+
+3. FUNCTIONS & INTERACTION
+------------------------------------------------------------------
+- File Handling: Clicking a document card should open the Google Drive PDF link in a new browser tab so the user doesn't leave the portfolio site.
+- Navigation: A simple sticky navigation bar at the top to easily jump straight to sections
+- Filtering/Tabs: Group documents to before, during, and after OJT
+    - Before OJT: Cover Page, Letter of Intent (LOI), Letter of Endorsement (LOE), Memorandum of Agreement (MOA), Student Waiver, Internship Agreement, Consent Form, CV, Insurance, Medical Certificate.
+    - During OJT: Company Profile, Monthly Reports.
+    - After OJT: Approval Sheet, Certificate of Completion, Trainee Evaluation, Performance Evaluation.
+- File Sources: All paperwork will be uploaded to a Google Drive folder.
+
+
+4. PRIVACY & SECURITY GUARDRAILS
+------------------------------------------------------------------
+- Data Masking: Blur or cross out sensitive details on the PDFs.
+- Fallback text: If a document isn't signed or ready yet, display a placeholder badge like "Status: Processing" or "Available upon request"
+
+
+5. ACADEMIC / OVERVIEW DETAILS
+------------------------------------------------------------------
+- Student Name: Victoria Yuki M. Ilano
+- Degree Program: Bachelor of Science in Computer Engineering
+- Host Company Name: Applying
+- Department/Role: Computer Engineering Intern
+- Total OJT Hours Required vs. Rendered: 300 hours Required (0 hours Rendered)
