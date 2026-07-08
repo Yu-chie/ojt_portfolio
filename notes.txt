@@ -74,3 +74,9 @@ ojt_portfolio/
     └── images/         # Directory for tracking local image assets
         ├── profile.jpg # Professional CV photo
         └── logo.png    # University or target company logo
+
+
+7. EXTERNAL LIBRARIES & DEPENDENCIES
+------------------------------------------------------------------
+- Iconography: Font Awesome v7.0.1 via Content Delivery Network (CDN) link
+- Source URL: https://cdnjs.com/libraries/font-awesome
