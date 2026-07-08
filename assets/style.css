@@ -1,9 +1,169 @@
-*{
+/* ==================================================================
+   GLOBAL RESET ENGINE
+   ================================================================== */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins';
+    font-family: 'Poppins', Arial, sans-serif;
     text-decoration: none;
     scroll-behavior: smooth;
     list-style: none;
+}
+
+/* ==================================================================
+   DEEP OCEAN COLOR VARIABLES & THEME TOKENS
+   ================================================================== */
+:root {
+    /* Background gradients: Deep Navy Blue to Midnight Blue */
+    --bg-gradient-top: #0a192f;
+    --bg-gradient-bottom: #020c1b;
+    
+    /* Core surface cards and headers */
+    --surface-navy: #112240;
+    --surface-hover: #233554;
+    
+    /* Typography colors: Cool Gray and Off-White */
+    --text-primary: #e6f1ff;
+    --text-secondary: #8892b0;
+    
+    /* Accents & Status Indicators: Cyan / Sky Blue glowing tones */
+    --accent-cyan: #64ffda;
+    --status-processing: #f1c40f;
+    --status-verified: #2ecc71;
+}
+
+/* ==================================================================
+   SECTION 1: STICKY NAVIGATION BAR LAYOUT
+   ================================================================== */
+/* Navbar global layout configuration */
+.navbar {
+    /* Fixed position rules for top window tracking */
+}
+
+/* Branding anchor text layout inside navbar */
+.nav-logo {
+    /* Logo structural positioning rules */
+}
+
+/* Targeting the logo span element for explicit cyan accent text pops */
+.nav-logo span {
+    /* Logo accent coloring */
+}
+
+/* Navigation lists layout wrapper */
+.nav-links {
+    /* Flexbox arrangement alignment rules */
+}
+
+/* Individual list item styles */
+.nav-item {
+    /* Color typography and smooth transition behaviors on hover */
+}
+
+
+/* ==================================================================
+   SECTION 2: HERO / LANDING OVERVIEW LAYOUT
+   ================================================================== */
+/* Hero section container alignment blocks */
+.hero {
+    /* Viewport height rules, centering alignment mechanisms */
+}
+
+/* Core branding header name layout typography rules */
+.hero-title {
+    /* Font sizes, font weights, and primary typography styling */
+}
+
+/* Degree title tracking subtitle layout typography rules */
+.hero-subtitle {
+    /* Accent text coloring, tracking adjustments */
+}
+
+/* OJT tracking status and details arrangement layout wrapper */
+.hero-details {
+    /* Card details column / layout spacing blocks */
+}
+
+/* Individual metadata detail strings matching Font Awesome line spaces */
+.detail-item {
+    /* Icon item spacing rules */
+}
+
+/* Interactive quick-action action call button layout for CV access */
+.btn-cv {
+    /* Button spacing offsets, border lines, background transitions */
+}
+
+
+/* ==================================================================
+   SECTION 3: DOCUMENT PORTFOLIO GRID LAYOUT
+   ================================================================== */
+/* Main page wrap grid container box block spacing rules */
+.portfolio-container {
+    /* Padding constraints, auto margin boundary checks */
+}
+
+/* Sub-section layout controls: Filter Tab Button row arrays */
+.filter-tabs {
+    /* Flex grid alignments, central alignments, gap offsets */
+}
+
+/* Individual tab sorting filter control buttons */
+.tab-btn {
+    /* Button baseline designs, active state coloring shifts */
+}
+
+/* Core dynamic responsive multi-column document container grid array */
+.document-grid {
+    /* CSS Grid properties using repeating auto-fit limits for responsive sizing */
+}
+
+/* Individual document profile layout block components */
+.document-card {
+    /* Card surfaces, border-radius controls, hover elevate shifts */
+}
+
+/* Document type decoration box layouts */
+.card-icon {
+    /* Icon resizing, color filters */
+}
+
+/* Inside card headline text layouts */
+.card-title {
+    /* Header layouts */
+}
+
+/* Inside card tracking label text indicator tags */
+.card-category {
+    /* Text category identifiers */
+}
+
+/* Status tracking indicators (Processing vs Completed) */
+.card-status {
+    /* Status background shapes, conditional styling selectors */
+}
+
+/* File hyperlink trigger tag elements */
+.card-link {
+    /* Dynamic bottom link offsets */
+}
+
+
+/* ==================================================================
+   SECTION 4: FOOTER LAYOUT
+   ================================================================== */
+/* Page footer alignment wrappers */
+.footer {
+    /* Text alignment controls, top padding line spaces */
+}
+
+/* Primary trademark block texts */
+.footer-text {
+    /* Copyright tracking rules */
+}
+
+/* Academic registration secondary description lines */
+.footer-subtext {
+    /* Institution data string colors */
 }
