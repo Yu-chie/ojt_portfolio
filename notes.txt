@@ -27,7 +27,16 @@ OJT PORTFOLIO PROJECT NOTES
 [ ] Curriculum Vitae (CV)
 [ ] Insurance
 [ ] Medical Certificate
-[ ] Monthly Reports
+[ ] Monthly Report 1
+    [ ] Weekly Report - Week 1
+    [ ] Weekly Report - Week 2
+    [ ] Weekly Report - Week 3
+    [ ] Weekly Report - Week 4
+[ ] Monthly Report 2
+    [ ] Weekly Report - Week 5
+    [ ] Weekly Report - Week 6
+    [ ] Weekly Report - Week 7
+    [ ] Weekly Report - Week 8
 [ ] Certificate of Completion
 [ ] Trainee Evaluation
 [ ] Performance Evaluation
@@ -39,7 +48,7 @@ OJT PORTFOLIO PROJECT NOTES
 - Navigation: A simple sticky navigation bar at the top to easily jump straight to sections
 - Filtering/Tabs: Group documents to before, during, and after OJT
     - Before OJT: Cover Page, Letter of Intent (LOI), Letter of Endorsement (LOE), Memorandum of Agreement (MOA), Student Waiver, Internship Agreement, Consent Form, CV, Insurance, Medical Certificate.
-    - During OJT: Company Profile, Monthly Reports.
+    - During OJT: Company Profile, Monthly Report 1 (with Weeks 1-4 nested), Monthly Report 2 (with Weeks 5-8 nested).
     - After OJT: Approval Sheet, Certificate of Completion, Trainee Evaluation, Performance Evaluation.
 - File Sources: All paperwork will be uploaded to a Google Drive folder.
 
