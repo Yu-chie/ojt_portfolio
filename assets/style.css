@@ -343,14 +343,24 @@ body {
 /* Page footer alignment wrappers */
 .footer {
     /* Text alignment controls, top padding line spaces */
+    padding: 50px 20px;
+    border-top: 1px solid rgba(100, 255, 218, 0.05);
+    text-align: center;
+    background-color: var(--bg-gradient-bottom);
 }
 
 /* Primary trademark block texts */
 .footer-text {
     /* Copyright tracking rules */
+    font-size: 14px;
+    color: var(--text-primary);
+    margin-bottom: 8px;
 }
 
 /* Academic registration secondary description lines */
 .footer-subtext {
     /* Institution data string colors */
+    font-size: 12px;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
 }
