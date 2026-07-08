@@ -68,9 +68,9 @@ ojt_portfolio/
 ├── notes.txt           # Project blueprint and requirements
 ├── index.html          # The skeleton and core content of the portfolio website
 │
-└── assets/             # A folder to keep the design assets organized
-    ├── css/
-    │   └── style.css   # The file for Deep Ocean theme and styling
-    └── images/
+└── assets/             # Folder for project assets
+    ├── style.css       # External stylesheet for Deep Ocean theme and styling
+    ├── script.js       # JavaScript file handling document grid tab filtering logic
+    └── images/         # Directory for tracking local image assets
         ├── profile.jpg # Professional CV photo
         └── logo.png    # University or target company logo
