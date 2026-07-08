@@ -11,6 +11,13 @@
     list-style: none;
 }
 
+body {
+    /* Applying the Deep Ocean background gradient to make the elements visible */
+    background: linear-gradient(180deg, var(--bg-gradient-top) 0%, var(--bg-gradient-bottom) 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+}
+
 /* ==================================================================
    DEEP OCEAN COLOR VARIABLES & THEME TOKENS
    ================================================================== */
@@ -39,26 +46,58 @@
 /* Navbar global layout configuration */
 .navbar {
     /* Fixed position rules for top window tracking */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: rgba(10, 25, 47, 0.85); /* Semi-transparent top navy blur */
+    backdrop-filter: blur(10px); /* Smooth frosted-glass effect */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    z-index: 1000; /* Keeps navbar resting safely over all grid elements */
+    border-bottom: 1px solid rgba(100, 255, 218, 0.1); /* Subtly lights up the bottom line */
 }
 
 /* Branding anchor text layout inside navbar */
 .nav-logo {
     /* Logo structural positioning rules */
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: 1px;
 }
 
 /* Targeting the logo span element for explicit cyan accent text pops */
 .nav-logo span {
     /* Logo accent coloring */
+    color: var(--accent-cyan);
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.3); /* Soft cyber glow effect */
 }
 
 /* Navigation lists layout wrapper */
 .nav-links {
     /* Flexbox arrangement alignment rules */
+    display: flex;
+    align-items: center;
+    gap: 30px;
 }
 
 /* Individual list item styles */
 .nav-item {
     /* Color typography and smooth transition behaviors on hover */
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: all 0.3s ease;
+}
+
+/* Adding active hover transition pop to matching links */
+.nav-item:hover {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 8px rgba(100, 255, 218, 0.2);
 }
 
 
