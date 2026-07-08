@@ -107,31 +107,90 @@ body {
 /* Hero section container alignment blocks */
 .hero {
     /* Viewport height rules, centering alignment mechanisms */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    padding-top: 70px; /* Prevents sticky navbar from overlapping text content */
+    text-align: center;
 }
 
 /* Core branding header name layout typography rules */
 .hero-title {
     /* Font sizes, font weights, and primary typography styling */
+    font-size: clamp(40px, 8vw, 70px); /* Fluid typography scales dynamically on screen sizes */
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 10px;
 }
 
 /* Degree title tracking subtitle layout typography rules */
 .hero-subtitle {
     /* Accent text coloring, tracking adjustments */
+    font-size: clamp(18px, 4vw, 24px);
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
 }
 
 /* OJT tracking status and details arrangement layout wrapper */
 .hero-details {
     /* Card details column / layout spacing blocks */
+    background-color: var(--surface-navy);
+    border: 1px solid rgba(100, 255, 218, 0.05);
+    border-radius: 12px;
+    padding: 25px 40px;
+    display: inline-flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: left;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.5);
 }
 
 /* Individual metadata detail strings matching Font Awesome line spaces */
 .detail-item {
     /* Icon item spacing rules */
+    font-size: 16px;
+    color: var(--text-primary);
+}
+
+.detail-item i {
+    color: var(--accent-cyan);
+    margin-right: 12px;
+    width: 20px;
+    text-align: center;
 }
 
 /* Interactive quick-action action call button layout for CV access */
 .btn-cv {
     /* Button spacing offsets, border lines, background transitions */
+    display: inline-block;
+    padding: 16px 28px;
+    border: 1px solid var(--accent-cyan);
+    border-radius: 4px;
+    color: var(--accent-cyan);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background: transparent;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn-cv i {
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+/* Interactive accent hover states for CV button */
+.btn-cv:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+    box-shadow: 0 0 15px rgba(100, 255, 218, 0.2);
+}
+
+.btn-cv:hover i {
+    transform: translateX(5px); /* Arrow glides slightly to the right */
 }
 
 
