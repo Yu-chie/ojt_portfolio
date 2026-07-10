@@ -13,7 +13,7 @@
 
 body {
     /* Applying the Deep Ocean background gradient to make the elements visible */
-    background: radial-gradient(circle at bottom, #38bdf8 0%, var(--bg-gradient-top) 55%, var(--bg-gradient-bottom) 100%);
+    background: radial-gradient(ellipse at 50% 110%, #38bdf8 0%, #1e3a5f 25%, var(--bg-gradient-top) 60%, var(--bg-gradient-bottom) 100%);
     background-attachment: fixed; /* Keeps the gradient pinned while you scroll for a smooth effect */
     color: var(--text-primary);
     min-height: 100vh;
