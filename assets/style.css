@@ -13,7 +13,7 @@
 
 body {
     /* Applying the Deep Ocean background gradient to make the elements visible */
-    background: linear-gradient(135deg, var(--bg-gradient-bottom) 0%, var(--bg-gradient-top) 50%, var(--bg-gradient-light) 100%);
+    background: radial-gradient(circle at bottom, #38bdf8 0%, var(--bg-gradient-top) 55%, var(--bg-gradient-bottom) 100%);
     background-attachment: fixed; /* Keeps the gradient pinned while you scroll for a smooth effect */
     color: var(--text-primary);
     min-height: 100vh;
@@ -24,7 +24,7 @@ body {
    ================================================================== */
 :root {
     /* Background gradients: Deep Navy Blue to Midnight Blue */
-    --bg-gradient-light: #1a4278; /* High-contrast rich ocean blue accent for the bottom corner */
+    --bg-gradient-light: #1a4278; 
     --bg-gradient-top: #0a192f;
     --bg-gradient-bottom: #020c1b;
     
