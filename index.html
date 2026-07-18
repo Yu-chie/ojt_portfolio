@@ -53,6 +53,23 @@
         </section>
     </header>
 
+
+    <!-- ADMIN AUTHENTICATION INTERFACE LAYER -->
+    <section id="admin-login-section" style="display: none; padding: 100px 20px; min-height: 70vh; justify-content: center; align-items: center;">
+        <div style="background-color: var(--surface-navy); border: 1px solid rgba(100, 255, 218, 0.1); border-radius: 8px; padding: 40px; max-width: 400px; width: 100%; box-shadow: 0 20px 40px -15px rgba(2,12,27,0.7); text-align: center;">
+            <i class="fa-solid fa-shield-halved" style="font-size: 40px; color: var(--accent-cyan); margin-bottom: 20px;"></i>
+            <h2 style="color: var(--text-primary); margin-bottom: 10px; font-size: 22px;">Admin Portal</h2>
+            <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 25px;">Provide administrative authorization keys to gain document management privileges.</p>
+            
+            <form id="login-form" style="display: flex; flex-direction: column; gap: 15px;">
+                <input type="password" id="admin-password" placeholder="Enter Admin Password" style="width: 100%; padding: 12px; border-radius: 4px; border: 1px solid var(--text-secondary); background-color: rgba(2, 12, 27, 0.4); color: var(--text-primary); font-size: 14px; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--accent-cyan)'" onblur="this.style.borderColor='var(--text-secondary)'">
+                <button type="submit" class="btn-cv" style="width: 100%; padding: 12px; cursor: pointer;">Authenticate</button>
+                <button type="button" id="cancel-login-btn" style="background: transparent; border: none; color: var(--text-secondary); font-size: 13px; cursor: pointer; margin-top: 5px; text-decoration: underline;">Return to Portfolio</button>
+            </form>
+        </div>
+    </section>
+
+
     <!-- DOCUMENT PORTFOLIO GRID -->
     <main class="portfolio-container" id="documents" style="padding-top: 50px;">[cite: 2]
         
@@ -68,303 +85,302 @@
         <div class="document-grid">[cite: 2]
             
             <!-- Cover Page Card -->
-            <div class="document-card" data-category="before" data-id="cover-page">
+            <div class="document-card" data-category="before" data-id="cover-page">[cite: 2]
                 <div class="card-icon"><i class="fa-regular fa-file-lines"></i></div>[cite: 2]
                 <h3 class="card-title">Cover Page</h3>[cite: 2]
                 <span class="card-category">Before OJT</span>[cite: 2]
                 <span class="card-status status-processing">Processing</span>[cite: 2]
                 
-                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">
-                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    <!-- Admin Only Management Actions Hidden by Default -->
-                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">
-                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF
-                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">
+                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">[cite: 2]
+                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>[cite: 2]
+                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">[cite: 2]
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF[cite: 2]
+                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">[cite: 2]
                     </label>
                 </div>
             </div>
 
             <!-- Letter of Intent Card -->
-            <div class="document-card" data-category="before" data-id="loi">
+            <div class="document-card" data-category="before" data-id="loi">[cite: 2]
                 <div class="card-icon"><i class="fa-regular fa-envelope"></i></div>[cite: 2]
                 <h3 class="card-title">Letter of Intent (LOI)</h3>[cite: 2]
                 <span class="card-category">Before OJT</span>[cite: 2]
                 <span class="card-status status-processing">Processing</span>[cite: 2]
                 
-                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">
-                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">
-                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF
-                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">
+                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">[cite: 2]
+                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>[cite: 2]
+                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">[cite: 2]
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF[cite: 2]
+                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">[cite: 2]
                     </label>
                 </div>
             </div>
 
             <!-- Letter of Endorsement Card -->
-            <div class="document-card" data-category="before" data-id="loe">
+            <div class="document-card" data-category="before" data-id="loe">[cite: 2]
                 <div class="card-icon"><i class="fa-regular fa-id-badge"></i></div>[cite: 2]
                 <h3 class="card-title">Letter of Endorsement (LOE)</h3>[cite: 2]
                 <span class="card-category">Before OJT</span>[cite: 2]
                 <span class="card-status status-processing">Processing</span>[cite: 2]
                 
-                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">
-                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">
-                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF
-                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">
+                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">[cite: 2]
+                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>[cite: 2]
+                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">[cite: 2]
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF[cite: 2]
+                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">[cite: 2]
                     </label>
                 </div>
             </div>
 
             <!-- Memorandum of Agreement Card -->
-            <div class="document-card" data-category="before" data-id="moa">
+            <div class="document-card" data-category="before" data-id="moa">[cite: 2]
                 <div class="card-icon"><i class="fa-regular fa-handshake"></i></div>[cite: 2]
                 <h3 class="card-title">Memorandum of Agreement (MOA)</h3>[cite: 2]
                 <span class="card-category">Before OJT</span>[cite: 2]
                 <span class="card-status status-processing">Processing</span>[cite: 2]
                 
-                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">
-                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">
-                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF
-                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">
+                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">[cite: 2]
+                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>[cite: 2]
+                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">[cite: 2]
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF[cite: 2]
+                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">[cite: 2]
                     </label>
                 </div>
             </div>
 
             <!-- Student Waiver Card -->
-            <div class="document-card" data-category="before" data-id="waiver">
+            <div class="document-card" data-category="before" data-id="waiver">[cite: 2]
                 <div class="card-icon"><i class="fa-solid fa-signature"></i></div>[cite: 2]
                 <h3 class="card-title">Student Waiver</h3>[cite: 2]
                 <span class="card-category">Before OJT</span>[cite: 2]
                 <span class="card-status status-processing">Processing</span>[cite: 2]
                 
-                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">
-                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">
-                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF
-                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">
+                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">[cite: 2]
+                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>[cite: 2]
+                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">[cite: 2]
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF[cite: 2]
+                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">[cite: 2]
                     </label>
                 </div>
             </div>
 
             <!-- Internship Agreement Card -->
-            <div class="document-card" data-category="before" data-id="agreement">
+            <div class="document-card" data-category="before" data-id="agreement">[cite: 2]
                 <div class="card-icon"><i class="fa-regular fa-file-word"></i></div>[cite: 2]
                 <h3 class="card-title">Internship Agreement</h3>[cite: 2]
                 <span class="card-category">Before OJT</span>[cite: 2]
                 <span class="card-status status-processing">Processing</span>[cite: 2]
                 
-                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">
-                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">
-                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF
-                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">
+                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">[cite: 2]
+                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>[cite: 2]
+                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">[cite: 2]
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF[cite: 2]
+                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">[cite: 2]
                     </label>
                 </div>
             </div>
 
             <!-- Consent Form Card -->
-            <div class="document-card" data-category="before" data-id="consent">
+            <div class="document-card" data-category="before" data-id="consent">[cite: 2]
                 <div class="card-icon"><i class="fa-solid fa-user-check"></i></div>[cite: 2]
                 <h3 class="card-title">Consent Form</h3>[cite: 2]
                 <span class="card-category">Before OJT</span>[cite: 2]
                 <span class="card-status status-processing">Processing</span>[cite: 2]
                 
-                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">
-                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">
-                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF
-                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">
+                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">[cite: 2]
+                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>[cite: 2]
+                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">[cite: 2]
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF[cite: 2]
+                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">[cite: 2]
                     </label>
                 </div>
             </div>
 
             <!-- Curriculum Vitae Card -->
-            <div class="document-card" data-category="before" data-id="cv-card">
+            <div class="document-card" data-category="before" data-id="cv-card">[cite: 2]
                 <div class="card-icon"><i class="fa-regular fa-address-card"></i></div>[cite: 2]
                 <h3 class="card-title">Curriculum Vitae (CV)</h3>[cite: 2]
                 <span class="card-category">Before OJT</span>[cite: 2]
                 <span class="card-status status-processing">Processing</span>[cite: 2]
                 
-                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">
-                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">
-                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF
-                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">
+                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">[cite: 2]
+                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>[cite: 2]
+                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">[cite: 2]
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF[cite: 2]
+                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">[cite: 2]
                     </label>
                 </div>
             </div>
 
             <!-- Insurance Card -->
-            <div class="document-card" data-category="before" data-id="insurance">
+            <div class="document-card" data-category="before" data-id="insurance">[cite: 2]
                 <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>[cite: 2]
                 <h3 class="card-title">Insurance</h3>[cite: 2]
                 <span class="card-category">Before OJT</span>[cite: 2]
                 <span class="card-status status-processing">Processing</span>[cite: 2]
                 
-                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">
-                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">
-                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF
-                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">
+                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">[cite: 2]
+                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>[cite: 2]
+                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">[cite: 2]
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF[cite: 2]
+                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">[cite: 2]
                     </label>
                 </div>
             </div>
 
             <!-- Medical Certificate Card -->
-            <div class="document-card" data-category="before" data-id="medical">
+            <div class="document-card" data-category="before" data-id="medical">[cite: 2]
                 <div class="card-icon"><i class="fa-solid fa-heart-pulse"></i></div>[cite: 2]
                 <h3 class="card-title">Medical Certificate</h3>[cite: 2]
                 <span class="card-category">Before OJT</span>[cite: 2]
                 <span class="card-status status-processing">Processing</span>[cite: 2]
                 
-                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">
-                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">
-                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF
-                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">
+                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">[cite: 2]
+                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>[cite: 2]
+                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">[cite: 2]
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF[cite: 2]
+                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">[cite: 2]
                     </label>
                 </div>
             </div>
 
             <!-- Company Profile Card -->
-            <div class="document-card" data-category="during" data-id="company-profile">
+            <div class="document-card" data-category="during" data-id="company-profile">[cite: 2]
                 <div class="card-icon"><i class="fa-solid fa-sitemap"></i></div>[cite: 2]
                 <h3 class="card-title">Company Profile</h3>[cite: 2]
                 <span class="card-category">During OJT</span>[cite: 2]
                 <span class="card-status status-processing">Processing</span>[cite: 2]
                 
-                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">
-                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">
-                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF
-                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">
+                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">[cite: 2]
+                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>[cite: 2]
+                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">[cite: 2]
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF[cite: 2]
+                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">[cite: 2]
                     </label>
                 </div>
             </div>
 
             <!-- Monthly Report 1 Card -->
-            <div class="document-card" data-category="during" data-id="monthly-1">
+            <div class="document-card" data-category="during" data-id="monthly-1">[cite: 2]
                 <div class="card-icon"><i class="fa-regular fa-calendar-check"></i></div>[cite: 2]
                 <h3 class="card-title">Monthly Report 1</h3>[cite: 2]
                 <span class="card-category">During OJT</span>[cite: 2]
                 <span class="card-status status-processing">Processing</span>[cite: 2]
                 
                 <div class="nested-weeks" style="margin-bottom: 15px;">[cite: 2]
-                    <a href="#" class="weekly-link w-link" data-week="1" style="display: none;"><i class="fa-solid fa-link"></i> W1</a>
-                    <a href="#" class="weekly-link w-link" data-week="2" style="display: none;"><i class="fa-solid fa-link"></i> W2</a>
-                    <a href="#" class="weekly-link w-link" data-week="3" style="display: none;"><i class="fa-solid fa-link"></i> W3</a>
-                    <a href="#" class="weekly-link w-link" data-week="4" style="display: none;"><i class="fa-solid fa-link"></i> W4</a>
+                    <a href="#" class="weekly-link w-link" data-week="1" style="display: none;"><i class="fa-solid fa-link"></i> W1</a>[cite: 2]
+                    <a href="#" class="weekly-link w-link" data-week="2" style="display: none;"><i class="fa-solid fa-link"></i> W2</a>[cite: 2]
+                    <a href="#" class="weekly-link w-link" data-week="3" style="display: none;"><i class="fa-solid fa-link"></i> W3</a>[cite: 2]
+                    <a href="#" class="weekly-link w-link" data-week="4" style="display: none;"><i class="fa-solid fa-link"></i> W4</a>[cite: 2]
                 </div>
                 
                 <!-- Admin Tools for Uploading Individual Weeks -->
-                <div class="admin-weekly-uploads" style="display: none; flex-direction: column; gap: 5px;">
-                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">
-                        Upload Week 1: <input type="file" accept=".pdf" class="secure-week-input" data-week="1">
+                <div class="admin-weekly-uploads" style="display: none; flex-direction: column; gap: 5px;">[cite: 2]
+                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">[cite: 2]
+                        Upload Week 1: <input type="file" accept=".pdf" class="secure-week-input" data-week="1">[cite: 2]
                     </label>
-                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">
-                        Upload Week 2: <input type="file" accept=".pdf" class="secure-week-input" data-week="2">
+                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">[cite: 2]
+                        Upload Week 2: <input type="file" accept=".pdf" class="secure-week-input" data-week="2">[cite: 2]
                     </label>
-                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">
-                        Upload Week 3: <input type="file" accept=".pdf" class="secure-week-input" data-week="3">
+                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">[cite: 2]
+                        Upload Week 3: <input type="file" accept=".pdf" class="secure-week-input" data-week="3">[cite: 2]
                     </label>
-                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">
-                        Upload Week 4: <input type="file" accept=".pdf" class="secure-week-input" data-week="4">
+                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">[cite: 2]
+                        Upload Week 4: <input type="file" accept=".pdf" class="secure-week-input" data-week="4">[cite: 2]
                     </label>
                 </div>
             </div>
 
             <!-- Monthly Report 2 Card -->
-            <div class="document-card" data-category="during" data-id="monthly-2">
+            <div class="document-card" data-category="during" data-id="monthly-2">[cite: 2]
                 <div class="card-icon"><i class="fa-regular fa-calendar-check"></i></div>[cite: 2]
                 <h3 class="card-title">Monthly Report 2</h3>[cite: 2]
                 <span class="card-category">During OJT</span>[cite: 2]
                 <span class="card-status status-processing">Processing</span>[cite: 2]
                 
                 <div class="nested-weeks" style="margin-bottom: 15px;">[cite: 2]
-                    <a href="#" class="weekly-link w-link" data-week="5" style="display: none;"><i class="fa-solid fa-link"></i> W5</a>
-                    <a href="#" class="weekly-link w-link" data-week="6" style="display: none;"><i class="fa-solid fa-link"></i> W6</a>
-                    <a href="#" class="weekly-link w-link" data-week="7" style="display: none;"><i class="fa-solid fa-link"></i> W7</a>
-                    <a href="#" class="weekly-link w-link" data-week="8" style="display: none;"><i class="fa-solid fa-link"></i> W8</a>
+                    <a href="#" class="weekly-link w-link" data-week="5" style="display: none;"><i class="fa-solid fa-link"></i> W5</a>[cite: 2]
+                    <a href="#" class="weekly-link w-link" data-week="6" style="display: none;"><i class="fa-solid fa-link"></i> W6</a>[cite: 2]
+                    <a href="#" class="weekly-link w-link" data-week="7" style="display: none;"><i class="fa-solid fa-link"></i> W7</a>[cite: 2]
+                    <a href="#" class="weekly-link w-link" data-week="8" style="display: none;"><i class="fa-solid fa-link"></i> W8</a>[cite: 2]
                 </div>
 
-                <div class="admin-weekly-uploads" style="display: none; flex-direction: column; gap: 5px;">
-                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">
-                        Upload Week 5: <input type="file" accept=".pdf" class="secure-week-input" data-week="5">
+                <div class="admin-weekly-uploads" style="display: none; flex-direction: column; gap: 5px;">[cite: 2]
+                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">[cite: 2]
+                        Upload Week 5: <input type="file" accept=".pdf" class="secure-week-input" data-week="5">[cite: 2]
                     </label>
-                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">
-                        Upload Week 6: <input type="file" accept=".pdf" class="secure-week-input" data-week="6">
+                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">[cite: 2]
+                        Upload Week 6: <input type="file" accept=".pdf" class="secure-week-input" data-week="6">[cite: 2]
                     </label>
-                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">
-                        Upload Week 7: <input type="file" accept=".pdf" class="secure-week-input" data-week="7">
+                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">[cite: 2]
+                        Upload Week 7: <input type="file" accept=".pdf" class="secure-week-input" data-week="7">[cite: 2]
                     </label>
-                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">
-                        Upload Week 8: <input type="file" accept=".pdf" class="secure-week-input" data-week="8">
+                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">[cite: 2]
+                        Upload Week 8: <input type="file" accept=".pdf" class="secure-week-input" data-week="8">[cite: 2]
                     </label>
                 </div>
             </div>
 
             <!-- Approval Sheet Card -->
-            <div class="document-card" data-category="after" data-id="approval">
+            <div class="document-card" data-category="after" data-id="approval">[cite: 2]
                 <div class="card-icon"><i class="fa-solid fa-file-signature"></i></div>[cite: 2]
                 <h3 class="card-title">Approval Sheet</h3>[cite: 2]
                 <span class="card-category">After OJT</span>[cite: 2]
                 <span class="card-status status-processing">Processing</span>[cite: 2]
                 
-                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">
-                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">
-                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF
-                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">
+                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">[cite: 2]
+                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>[cite: 2]
+                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">[cite: 2]
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF[cite: 2]
+                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">[cite: 2]
                     </label>
                 </div>
             </div>
 
             <!-- Certificate of Completion Card -->
-            <div class="document-card" data-category="after" data-id="completion">
+            <div class="document-card" data-category="after" data-id="completion">[cite: 2]
                 <div class="card-icon"><i class="fa-solid fa-award"></i></div>[cite: 2]
                 <h3 class="card-title">Certificate of Completion</h3>[cite: 2]
                 <span class="card-category">After OJT</span>[cite: 2]
                 <span class="card-status status-processing">Processing</span>[cite: 2]
                 
-                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">
-                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">
-                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF
-                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">
+                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">[cite: 2]
+                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>[cite: 2]
+                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">[cite: 2]
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF[cite: 2]
+                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">[cite: 2]
                     </label>
                 </div>
             </div>
 
             <!-- Trainee Evaluation Card -->
-            <div class="document-card" data-category="after" data-id="trainee-eval">
+            <div class="document-card" data-category="after" data-id="trainee-eval">[cite: 2]
                 <div class="card-icon"><i class="fa-regular fa-star"></i></div>[cite: 2]
                 <h3 class="card-title">Trainee Evaluation</h3>[cite: 2]
                 <span class="card-category">After OJT</span>[cite: 2]
                 <span class="card-status status-processing">Processing</span>[cite: 2]
                 
-                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">
-                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">
-                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF
-                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">
+                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">[cite: 2]
+                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>[cite: 2]
+                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">[cite: 2]
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF[cite: 2]
+                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">[cite: 2]
                     </label>
                 </div>
             </div>
 
             <!-- Performance Evaluation Card -->
-            <div class="document-card" data-category="after" data-id="performance-eval">
+            <div class="document-card" data-category="after" data-id="performance-eval">[cite: 2]
                 <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>[cite: 2]
                 <h3 class="card-title">Performance Evaluation</h3>[cite: 2]
                 <span class="card-category">After OJT</span>[cite: 2]
                 <span class="card-status status-processing">Processing</span>[cite: 2]
                 
-                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">
-                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">
-                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF
-                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">
+                <div class="card-actions" style="display: flex; flex-direction: column; gap: 10px; margin-top: auto;">[cite: 2]
+                    <a href="#" class="card-link target-link" target="_blank" style="display: none;">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>[cite: 2]
+                    <label class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 13px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px; text-align: center; border-radius: 4px;">[cite: 2]
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Upload PDF[cite: 2]
+                        <input type="file" accept=".pdf" class="secure-file-input" style="display: none;">[cite: 2]
                     </label>
                 </div>
             </div>
