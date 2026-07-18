@@ -44,19 +44,20 @@ OJT PORTFOLIO PROJECT NOTES
 
 3. FUNCTIONS & INTERACTION
 ------------------------------------------------------------------
-- File Handling: Clicking a document card should open the Google Drive PDF link in a new browser tab so the user doesn't leave the portfolio site.
+- File Handling: Clicking a document card opens the hosted PDF binary file in a new browser tab.
 - Navigation: A simple sticky navigation bar at the top to easily jump straight to sections
 - Filtering/Tabs: Group documents to before, during, and after OJT
     - Before OJT: Cover Page, Letter of Intent (LOI), Letter of Endorsement (LOE), Memorandum of Agreement (MOA), Student Waiver, Internship Agreement, Consent Form, CV, Insurance, Medical Certificate.
     - During OJT: Company Profile, Monthly Report 1 (with Weeks 1-4 nested), Monthly Report 2 (with Weeks 5-8 nested).
     - After OJT: Approval Sheet, Certificate of Completion, Trainee Evaluation, Performance Evaluation.
-- File Sources: All paperwork will be uploaded to a Google Drive folder.
+- File Sources: Migrating from Google Drive links to an integrated administrative web dashboard backed by free Cloud Storage.
 
 
-4. PRIVACY & SECURITY GUARDRAILS
+4. PRIVACY, SECURITY & ACCESS CONTROL GUARDRAILS
 ------------------------------------------------------------------
 - Data Masking: Blur or cross out sensitive details on the PDFs.
 - Fallback text: If a document isn't signed or ready yet, display a placeholder badge like "Status: Processing" or "Available upon request"
+- Access Control: Role-based view logic. Admin authentication lets the portfolio owner upload/overwrite items directly from the interface, while public guests retain strictly read-only file access.
 
 
 5. ACADEMIC / OVERVIEW DETAILS
