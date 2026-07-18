@@ -10,6 +10,7 @@ OJT PORTFOLIO PROJECT NOTES
     - Accents (Buttons/Links): A bright, glowing Sky Blue or Cyan color for buttons so they stand out.
     - Text/Dividers: A soft Cool Gray or off-white for text, so it's readable but not blindingly bright white.
 - Layout Style: Simple, clean, single-page layout with a modern grid for document cards
+- Card Layout Mechanics: Title pulled up horizontally next to the icon, while the category text and processing badge remain perfectly aligned on the left edge below them.
 - Mobile Responsiveness: Text and document grid should scale down and stack beautifully on mobile screens
 
 
@@ -50,7 +51,8 @@ OJT PORTFOLIO PROJECT NOTES
     - Before OJT: Cover Page, Letter of Intent (LOI), Letter of Endorsement (LOE), Memorandum of Agreement (MOA), Student Waiver, Internship Agreement, Consent Form, CV, Insurance, Medical Certificate.
     - During OJT: Company Profile, Monthly Report 1 (with Weeks 1-4 nested), Monthly Report 2 (with Weeks 5-8 nested).
     - After OJT: Approval Sheet, Certificate of Completion, Trainee Evaluation, Performance Evaluation.
-- File Sources: Migrating from Google Drive links to an integrated administrative web dashboard backed by free Cloud Storage.
+- File Sources: Fully migrated from Google Drive links to an integrated administrative web dashboard backed by live Supabase Cloud Storage.
+- Grid Item Layouts: Combined multi-upload fields for weekly increments designed into uniform full-width grid layouts that expand to mimic primary card action buttons.
 
 
 4. PRIVACY, SECURITY & ACCESS CONTROL GUARDRAILS
@@ -58,6 +60,7 @@ OJT PORTFOLIO PROJECT NOTES
 - Data Masking: Blur or cross out sensitive details on the PDFs.
 - Fallback text: If a document isn't signed or ready yet, display a placeholder badge like "Status: Processing" or "Available upon request"
 - Access Control: Role-based view logic. Admin authentication lets the portfolio owner upload/overwrite items directly from the interface, while public guests retain strictly read-only file access.
+- UI Transitions: Administrative password checks handle authentication inline through seamless style alterations, removing disruptive native browser pop-ups entirely.
 
 
 5. ACADEMIC / OVERVIEW DETAILS
