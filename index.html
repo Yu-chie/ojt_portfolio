@@ -267,30 +267,31 @@
                 <span class="card-category">During OJT</span>
                 <span class="card-status status-processing">Processing</span>
                 
-                <div class="nested-weeks" style="margin-bottom: 15px; display: flex; gap: 8px; width: 100%;">
-                    <a href="#" class="weekly-link w-link" data-week="1" style="display: none; flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-link"></i> W1</a>
-                    <a href="#" class="weekly-link w-link" data-week="2" style="display: none; flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-link"></i> W2</a>
-                    <a href="#" class="weekly-link w-link" data-week="3" style="display: none; flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-link"></i> W3</a>
-                    <a href="#" class="weekly-link w-link" data-week="4" style="display: none; flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-link"></i> W4</a>
+                <!-- PUBLIC VIEW: Solid Redirect Link Elements (Spans full length uniformly) -->
+                <div class="nested-weeks" style="display: flex; gap: 8px; width: 100%; margin-top: auto;">
+                    <a href="#" class="weekly-link w-link" data-week="1" style="flex: 1; text-align: center; justify-content: center; background: rgba(100, 255, 218, 0.05); border: 1px solid rgba(100, 255, 218, 0.15); padding: 8px 0; border-radius: 4px; color: var(--text-primary); font-size: 12px;"><i class="fa-solid fa-file-lines"></i> W1</a>
+                    <a href="#" class="weekly-link w-link" data-week="2" style="flex: 1; text-align: center; justify-content: center; background: rgba(100, 255, 218, 0.05); border: 1px solid rgba(100, 255, 218, 0.15); padding: 8px 0; border-radius: 4px; color: var(--text-primary); font-size: 12px;"><i class="fa-solid fa-file-lines"></i> W2</a>
+                    <a href="#" class="weekly-link w-link" data-week="3" style="flex: 1; text-align: center; justify-content: center; background: rgba(100, 255, 218, 0.05); border: 1px solid rgba(100, 255, 218, 0.15); padding: 8px 0; border-radius: 4px; color: var(--text-primary); font-size: 12px;"><i class="fa-solid fa-file-lines"></i> W3</a>
+                    <a href="#" class="weekly-link w-link" data-week="4" style="flex: 1; text-align: center; justify-content: center; background: rgba(100, 255, 218, 0.05); border: 1px solid rgba(100, 255, 218, 0.15); padding: 8px 0; border-radius: 4px; color: var(--text-primary); font-size: 12px;"><i class="fa-solid fa-file-lines"></i> W4</a>
                 </div>
                 
-                <!-- Admin Tools for Uploading Individual Weeks -->
-                <div class="admin-weekly-uploads" style="display: none; display: flex; gap: 8px; width: 100%; margin-top: auto;">
-                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px 0; text-align: center; border-radius: 4px; flex: 1;">
+                <!-- ADMIN VIEW: Dashed Upload Action Controls (Hidden until Admin login occurs) -->
+                <div class="admin-weekly-uploads" style="display: none; gap: 8px; width: 100%; margin-top: 10px;">
+                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed var(--accent-cyan); padding: 8px 0; text-align: center; border-radius: 4px; flex: 1;">
                         <i class="fa-solid fa-cloud-arrow-up"></i> W1
-                        <input type="file" accept=".pdf, image/*" class="secure-week-input" data-week="1" style="display: none;">
+                        <input type="file" accept=".pdf" class="secure-week-input" data-week="1" style="display: none;">
                     </label>
-                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px 0; text-align: center; border-radius: 4px; flex: 1;">
+                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed var(--accent-cyan); padding: 8px 0; text-align: center; border-radius: 4px; flex: 1;">
                         <i class="fa-solid fa-cloud-arrow-up"></i> W2
-                        <input type="file" accept=".pdf, image/*" class="secure-week-input" data-week="2" style="display: none;">
+                        <input type="file" accept=".pdf" class="secure-week-input" data-week="2" style="display: none;">
                     </label>
-                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px 0; text-align: center; border-radius: 4px; flex: 1;">
+                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed var(--accent-cyan); padding: 8px 0; text-align: center; border-radius: 4px; flex: 1;">
                         <i class="fa-solid fa-cloud-arrow-up"></i> W3
-                        <input type="file" accept=".pdf, image/*" class="secure-week-input" data-week="3" style="display: none;">
+                        <input type="file" accept=".pdf" class="secure-week-input" data-week="3" style="display: none;">
                     </label>
-                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px 0; text-align: center; border-radius: 4px; flex: 1;">
+                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed var(--accent-cyan); padding: 8px 0; text-align: center; border-radius: 4px; flex: 1;">
                         <i class="fa-solid fa-cloud-arrow-up"></i> W4
-                        <input type="file" accept=".pdf, image/*" class="secure-week-input" data-week="4" style="display: none;">
+                        <input type="file" accept=".pdf" class="secure-week-input" data-week="4" style="display: none;">
                     </label>
                 </div>
             </div>
@@ -302,30 +303,31 @@
                 <span class="card-category">During OJT</span>
                 <span class="card-status status-processing">Processing</span>
                 
-                <div class="nested-weeks" style="margin-bottom: 15px; display: flex; gap: 8px; width: 100%;">
-                    <a href="#" class="weekly-link w-link" data-week="5" style="display: none; flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-link"></i> W5</a>
-                    <a href="#" class="weekly-link w-link" data-week="6" style="display: none; flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-link"></i> W6</a>
-                    <a href="#" class="weekly-link w-link" data-week="7" style="display: none; flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-link"></i> W7</a>
-                    <a href="#" class="weekly-link w-link" data-week="8" style="display: none; flex: 1; text-align: center; justify-content: center;"><i class="fa-solid fa-link"></i> W8</a>
+                <!-- PUBLIC VIEW: Solid Redirect Link Elements (Spans full length uniformly) -->
+                <div class="nested-weeks" style="display: flex; gap: 8px; width: 100%; margin-top: auto;">
+                    <a href="#" class="weekly-link w-link" data-week="5" style="flex: 1; text-align: center; justify-content: center; background: rgba(100, 255, 218, 0.05); border: 1px solid rgba(100, 255, 218, 0.15); padding: 8px 0; border-radius: 4px; color: var(--text-primary); font-size: 12px;"><i class="fa-solid fa-file-lines"></i> W5</a>
+                    <a href="#" class="weekly-link w-link" data-week="6" style="flex: 1; text-align: center; justify-content: center; background: rgba(100, 255, 218, 0.05); border: 1px solid rgba(100, 255, 218, 0.15); padding: 8px 0; border-radius: 4px; color: var(--text-primary); font-size: 12px;"><i class="fa-solid fa-file-lines"></i> W6</a>
+                    <a href="#" class="weekly-link w-link" data-week="7" style="flex: 1; text-align: center; justify-content: center; background: rgba(100, 255, 218, 0.05); border: 1px solid rgba(100, 255, 218, 0.15); padding: 8px 0; border-radius: 4px; color: var(--text-primary); font-size: 12px;"><i class="fa-solid fa-file-lines"></i> W7</a>
+                    <a href="#" class="weekly-link w-link" data-week="8" style="flex: 1; text-align: center; justify-content: center; background: rgba(100, 255, 218, 0.05); border: 1px solid rgba(100, 255, 218, 0.15); padding: 8px 0; border-radius: 4px; color: var(--text-primary); font-size: 12px;"><i class="fa-solid fa-file-lines"></i> W8</a>
                 </div>
 
-                <!-- Admin Tools for Uploading Individual Weeks -->
-                <div class="admin-weekly-uploads" style="display: none; display: flex; gap: 8px; width: 100%; margin-top: auto;">
-                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px 0; text-align: center; border-radius: 4px; flex: 1;">
+                <!-- ADMIN VIEW: Dashed Upload Action Controls (Hidden until Admin login occurs) -->
+                <div class="admin-weekly-uploads" style="display: none; gap: 8px; width: 100%; margin-top: 10px;">
+                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed var(--accent-cyan); padding: 8px 0; text-align: center; border-radius: 4px; flex: 1;">
                         <i class="fa-solid fa-cloud-arrow-up"></i> W5
-                        <input type="file" accept=".pdf, image/*" class="secure-week-input" data-week="5" style="display: none;">
+                        <input type="file" accept=".pdf" class="secure-week-input" data-week="5" style="display: none;">
                     </label>
-                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px 0; text-align: center; border-radius: 4px; flex: 1;">
+                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed var(--accent-cyan); padding: 8px 0; text-align: center; border-radius: 4px; flex: 1;">
                         <i class="fa-solid fa-cloud-arrow-up"></i> W6
-                        <input type="file" accept=".pdf, image/*" class="secure-week-input" data-week="6" style="display: none;">
+                        <input type="file" accept=".pdf" class="secure-week-input" data-week="6" style="display: none;">
                     </label>
-                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px 0; text-align: center; border-radius: 4px; flex: 1;">
+                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed var(--accent-cyan); padding: 8px 0; text-align: center; border-radius: 4px; flex: 1;">
                         <i class="fa-solid fa-cloud-arrow-up"></i> W7
-                        <input type="file" accept=".pdf, image/*" class="secure-week-input" data-week="7" style="display: none;">
+                        <input type="file" accept=".pdf" class="secure-week-input" data-week="7" style="display: none;">
                     </label>
-                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.3); padding: 8px 0; text-align: center; border-radius: 4px; flex: 1;">
+                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed var(--accent-cyan); padding: 8px 0; text-align: center; border-radius: 4px; flex: 1;">
                         <i class="fa-solid fa-cloud-arrow-up"></i> W8
-                        <input type="file" accept=".pdf, image/*" class="secure-week-input" data-week="8" style="display: none;">
+                        <input type="file" accept=".pdf" class="secure-week-input" data-week="8" style="display: none;">
                     </label>
                 </div>
             </div>
