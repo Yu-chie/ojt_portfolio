@@ -54,6 +54,7 @@ cancelLoginBtn.addEventListener('click', () => {
     heroSection.style.display = 'flex';
     mainContainer.style.display = 'block';
     passwordInput.value = '';
+    passwordInput.style.borderColor = ''; // Reset custom border color style if any
 });
 
 // Handle password submission checking event triggers
@@ -62,7 +63,6 @@ loginForm.addEventListener('submit', (e) => {
     
     // Placeholder authentication key evaluation checker logic
     if (passwordInput.value === '@ShimajirouTenma17') {
-        alert('Authentication successful! Management mode enabled.');
         
         // Show all administrative upload interface action controllers
         document.querySelectorAll('.admin-upload-btn, .admin-weekly-uploads').forEach(el => {
@@ -76,10 +76,11 @@ loginForm.addEventListener('submit', (e) => {
         // Initialize the secure interactive upload listeners now that admin is verified
         activateUploadListeners();
         
-        // Close form panel layer views and restore presentation components
+        // Close form panel layer views and restore presentation components quietly
         cancelLoginBtn.click();
     } else {
-        alert('Invalid administrative passphrase key pattern.');
+        // Style the input border red silently as validation feedback instead of a pop-up
+        passwordInput.style.borderColor = '#ff4a5a';
         passwordInput.value = '';
     }
 });
@@ -131,14 +132,11 @@ function activateUploadListeners() {
                     // Update state variables locally so links load automatically next time
                     localStorage.setItem(`url_${cardId}`, publicUrl);
                     updateCardUI(card, publicUrl);
-                    alert('Document saved securely in cloud storage bucket!');
                 } else {
-                    const err = await response.json();
-                    alert(`Cloud rejected upload: ${err.message || response.statusText}`);
+                    console.error('Cloud rejected upload processing routines.');
                 }
             } catch (err) {
                 console.error(err);
-                alert('Connection tracking pipeline error occurred.');
             } finally {
                 uploadLabel.innerHTML = originalText;
             }
@@ -178,7 +176,6 @@ function activateUploadListeners() {
                         weekLink.href = publicUrl;
                         weekLink.style.display = 'flex';
                     }
-                    alert(`Week ${weekNum} link synced successfully.`);
                 }
             } catch (err) {
                 console.error(err);
@@ -208,7 +205,6 @@ function restorePersistedState() {
         const savedUrl = localStorage.getItem(`url_${cardId}`);
         if (savedUrl) {
             updateCardUI(card, savedUrl);
-            // Hide processing badge since file is active
         }
 
         // Check nested week item nodes inside monthly cards
