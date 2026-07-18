@@ -25,26 +25,28 @@
 
         <!-- HERO / LANDING OVERVIEW -->
         <!-- Main introductory layout container -->
-        <section class="hero" id="overview">
-            <div class="hero-content">
-                <!-- Header displaying student name and degree program -->
-                <h1 class="hero-title">Victoria Yuki M. Ilano</h1>
-                <h2 class="hero-subtitle">Bachelor of Science in Computer Engineering</h2>
+        <section class="hero" id="overview" style="justify-content: flex-start; text-align: left; max-width: 1200px; margin: 0 auto; padding: 140px 40px 60px 40px;">
+            <div class="hero-content" style="align-items: flex-start; width: 100%;">
+                
+                <!-- Student Name and Degree Header -->
+                <h1 class="hero-title" style="margin-bottom: 5px;">Victoria Yuki M. Ilano</h1>
+                <h2 class="hero-subtitle" style="margin-bottom: 30px; font-size: 20px; color: var(--accent-cyan);">Bachelor of Science in Computer Engineering</h2>
                 
                 <!-- About Me Bio -->
-                <div style="max-width: 750px; margin-bottom: 35px; color: var(--text-secondary); line-height: 1.7; font-size: 15px;">
+                <div style="max-width: 800px; margin-bottom: 40px; color: var(--text-secondary); line-height: 1.7; font-size: 15px;">
                     <p>A bicultural (Filipino-Japanese) university student with an academic foundation in software logic, system servicing, and hardware fundamentals. Looking to adapt these foundational concepts to real-world technical support and hardware-software integration challenges. Currently seeking to learn more about enterprise systems and contribute thoughtfully as a dedicated engineering intern.</p>
                     <p style="margin-top: 15px;">On the technical side, academic exposure includes working with Python and R language, and currently exploring the fundamentals of HTML, CSS, and JavaScript. Outside of engineering, personal time is spent practicing patient creative hobbies like crochet and embroidery, reading manga, watching anime, and continuing to study Japanese.</p>
                 </div>
                 
                 <!-- Subheaders indicating target host company, role, and OJT hour tracking status -->
-                <div class="hero-details">
-                    <p class="detail-item"><i class="fa-solid fa-building"></i> <strong>Company:</strong> Applying</p>
-                    <p class="detail-item"><i class="fa-solid fa-user-gear"></i> <strong>Role:</strong> Computer Engineering Intern</p>
-                    <p class="detail-item"><i class="fa-solid fa-clock"></i> <strong>OJT Hours:</strong> 300 Required (0 Rendered)</p>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%; max-width: 800px; margin-bottom: 40px; background-color: var(--surface-navy); padding: 30px; border-radius: 8px; border: 1px solid rgba(100, 255, 218, 0.05); box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.5);">
+                    <div style="font-size: 15px; color: var(--text-primary);"><i class="fa-solid fa-building" style="color: var(--accent-cyan); margin-right: 10px; width: 20px;"></i><strong>Company:</strong> Applying</div>
+                    <div style="font-size: 15px; color: var(--text-primary);"><i class="fa-solid fa-user-gear" style="color: var(--accent-cyan); margin-right: 10px; width: 20px;"></i><strong>Role:</strong> Computer Engineering Intern</div>
+                    <div style="font-size: 15px; color: var(--text-primary);"><i class="fa-solid fa-clock" style="color: var(--accent-cyan); margin-right: 10px; width: 20px;"></i><strong>OJT Hours:</strong> 300 Hours Required</div>
+                    <div style="font-size: 15px; color: var(--text-primary);"><i class="fa-solid fa-file-invoice" style="color: var(--accent-cyan); margin-right: 10px; width: 20px;"></i><strong>Status:</strong> 0 Hours Rendered</div>
                 </div>
                 
-                <!-- Quick-action button linking directly to Curriculum Vitae document -->
+                <!-- Quick-action interactive button linking to CV -->
                 <a href="DRIVE_LINK_CV" class="btn-cv" target="_blank">View Curriculum Vitae <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </section>
@@ -52,24 +54,18 @@
 
 
     <!-- DOCUMENT PORTFOLIO GRID -->
-    <!-- Core layout container for academic paperwork compliance -->
-    <main class="portfolio-container" id="documents">
+    <main class="portfolio-container" id="documents" style="padding-top: 40px;">
         
-        <!-- Sub-section: Tab Filtering System -->
-        <!-- Interactive buttons filtering documents by execution phase: Before OJT, During OJT, After OJT -->
-        <div class="filter-tabs">
+        <!-- Tab Filtering System -->
+        <div class="filter-tabs" style="justify-content: flex-start; margin-bottom: 40px;">
             <button class="tab-btn active" data-filter="all">All Documents</button>
             <button class="tab-btn" data-filter="before">Before OJT</button>
             <button class="tab-btn" data-filter="during">During OJT</button>
             <button class="tab-btn" data-filter="after">After OJT</button>
         </div>
 
-        <!-- Sub-section: Document Cards Grid Layout -->
-        <!-- Responsive grid container adjusting column counts automatically across screen dimensions -->
+        <!-- Document Cards Grid Layout -->
         <div class="document-grid">
-            
-            <!-- Document Card Templates -->
-            <!-- Before OJT Cards: Cover Page, LOI, LOE, MOA, Student Waiver, Internship Agreement, Consent Form, CV, Insurance, Medical Certificate -->
             
             <!-- Cover Page Card -->
             <div class="document-card" data-category="before">
@@ -161,9 +157,6 @@
                 <a href="DRIVE_LINK_MEDICAL" class="card-link" target="_blank">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
 
-
-            <!-- During OJT Cards: Company Profile, Monthly Reports -->
-            
             <!-- Company Profile Card -->
             <div class="document-card" data-category="during">
                 <div class="card-icon"><i class="fa-solid fa-sitemap"></i></div>
@@ -173,14 +166,12 @@
                 <a href="DRIVE_LINK_COMPANY_PROFILE" class="card-link" target="_blank">Open File <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
             </div>
 
-            <!-- Monthly Report 1 Card (With Weekly Nesting) -->
+            <!-- Monthly Report 1 Card -->
             <div class="document-card" data-category="during">
                 <div class="card-icon"><i class="fa-regular fa-calendar-check"></i></div>
                 <h3 class="card-title">Monthly Report 1</h3>
                 <span class="card-category">During OJT</span>
                 <span class="card-status status-processing">Processing</span>
-                
-                <!-- Nested Weekly Support Documentation Links Blueprint -->
                 <div class="nested-weeks">
                     <a href="DRIVE_LINK_WEEK_1" class="weekly-link" target="_blank"><i class="fa-solid fa-link"></i> Week 1</a>
                     <a href="DRIVE_LINK_WEEK_2" class="weekly-link" target="_blank"><i class="fa-solid fa-link"></i> Week 2</a>
@@ -189,7 +180,7 @@
                 </div>
             </div>
 
-            <!-- Monthly Report 2 Card (With Weekly Nesting) -->
+            <!-- Monthly Report 2 Card -->
             <div class="document-card" data-category="during">
                 <div class="card-icon"><i class="fa-regular fa-calendar-check"></i></div>
                 <h3 class="card-title">Monthly Report 2</h3>
