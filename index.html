@@ -268,25 +268,29 @@
                 <span class="card-status status-processing">Processing</span>
                 
                 <div class="nested-weeks" style="margin-bottom: 15px; display: flex; gap: 8px;">
-                    <a href="#" class="weekly-link w-link" data-week="1"><i class="fa-solid fa-link"></i> W1</a>
-                    <a href="#" class="weekly-link w-link" data-week="2"><i class="fa-solid fa-link"></i> W2</a>
-                    <a href="#" class="weekly-link w-link" data-week="3"><i class="fa-solid fa-link"></i> W3</a>
-                    <a href="#" class="weekly-link w-link" data-week="4"><i class="fa-solid fa-link"></i> W4</a>
+                    <a href="#" class="weekly-link w-link" data-week="1" style="display: none;"><i class="fa-solid fa-link"></i> W1</a>
+                    <a href="#" class="weekly-link w-link" data-week="2" style="display: none;"><i class="fa-solid fa-link"></i> W2</a>
+                    <a href="#" class="weekly-link w-link" data-week="3" style="display: none;"><i class="fa-solid fa-link"></i> W3</a>
+                    <a href="#" class="weekly-link w-link" data-week="4" style="display: none;"><i class="fa-solid fa-link"></i> W4</a>
                 </div>
                 
                 <!-- Admin Tools for Uploading Individual Weeks -->
-                <div class="admin-weekly-uploads" style="display: none; flex-direction: column; gap: 5px;">
-                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">
-                        Upload Week 1: <input type="file" accept=".pdf" class="secure-week-input" data-week="1">
+                <div class="admin-weekly-uploads" style="display: none; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: auto;">
+                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.25); padding: 6px; text-align: center; border-radius: 4px;">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> W1
+                        <input type="file" accept=".pdf" class="secure-week-input" data-week="1" style="display: none;">
                     </label>
-                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">
-                        Upload Week 2: <input type="file" accept=".pdf" class="secure-week-input" data-week="2">
+                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.25); padding: 6px; text-align: center; border-radius: 4px;">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> W2
+                        <input type="file" accept=".pdf" class="secure-week-input" data-week="2" style="display: none;">
                     </label>
-                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">
-                        Upload Week 3: <input type="file" accept=".pdf" class="secure-week-input" data-week="3">
+                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.25); padding: 6px; text-align: center; border-radius: 4px;">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> W3
+                        <input type="file" accept=".pdf" class="secure-week-input" data-week="3" style="display: none;">
                     </label>
-                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">
-                        Upload Week 4: <input type="file" accept=".pdf" class="secure-week-input" data-week="4">
+                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.25); padding: 6px; text-align: center; border-radius: 4px;">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> W4
+                        <input type="file" accept=".pdf" class="secure-week-input" data-week="4" style="display: none;">
                     </label>
                 </div>
             </div>
@@ -299,24 +303,29 @@
                 <span class="card-status status-processing">Processing</span>
                 
                 <div class="nested-weeks" style="margin-bottom: 15px; display: flex; gap: 8px;">
-                    <a href="#" class="weekly-link w-link" data-week="5"><i class="fa-solid fa-link"></i> W5</a>
-                    <a href="#" class="weekly-link w-link" data-week="6"><i class="fa-solid fa-link"></i> W6</a>
-                    <a href="#" class="weekly-link w-link" data-week="7"><i class="fa-solid fa-link"></i> W7</a>
-                    <a href="#" class="weekly-link w-link" data-week="8"><i class="fa-solid fa-link"></i> W8</a>
+                    <a href="#" class="weekly-link w-link" data-week="5" style="display: none;"><i class="fa-solid fa-link"></i> W5</a>
+                    <a href="#" class="weekly-link w-link" data-week="6" style="display: none;"><i class="fa-solid fa-link"></i> W6</a>
+                    <a href="#" class="weekly-link w-link" data-week="7" style="display: none;"><i class="fa-solid fa-link"></i> W7</a>
+                    <a href="#" class="weekly-link w-link" data-week="8" style="display: none;"><i class="fa-solid fa-link"></i> W8</a>
                 </div>
 
-                <div class="admin-weekly-uploads" style="display: none; flex-direction: column; gap: 5px;">
-                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">
-                        Upload Week 5: <input type="file" accept=".pdf" class="secure-week-input" data-week="5">
+                <!-- Admin Tools for Uploading Individual Weeks -->
+                <div class="admin-weekly-uploads" style="display: none; grid-template-columns: repeat(2, 1fr); gap: 8px; margin-top: auto;">
+                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.25); padding: 6px; text-align: center; border-radius: 4px;">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> W5
+                        <input type="file" accept=".pdf" class="secure-week-input" data-week="5" style="display: none;">
                     </label>
-                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">
-                        Upload Week 6: <input type="file" accept=".pdf" class="secure-week-input" data-week="6">
+                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.25); padding: 6px; text-align: center; border-radius: 4px;">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> W6
+                        <input type="file" accept=".pdf" class="secure-week-input" data-week="6" style="display: none;">
                     </label>
-                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">
-                        Upload Week 7: <input type="file" accept=".pdf" class="secure-week-input" data-week="7">
+                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.25); padding: 6px; text-align: center; border-radius: 4px;">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> W7
+                        <input type="file" accept=".pdf" class="secure-week-input" data-week="7" style="display: none;">
                     </label>
-                    <label style="color: var(--text-secondary); font-size: 11px; cursor: pointer;">
-                        Upload Week 8: <input type="file" accept=".pdf" class="secure-week-input" data-week="8">
+                    <label style="color: var(--accent-cyan); font-size: 11px; cursor: pointer; border: 1px dashed rgba(100, 255, 218, 0.25); padding: 6px; text-align: center; border-radius: 4px;">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> W8
+                        <input type="file" accept=".pdf" class="secure-week-input" data-week="8" style="display: none;">
                     </label>
                 </div>
             </div>
