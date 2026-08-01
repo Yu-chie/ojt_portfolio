@@ -258,9 +258,10 @@ body {
     background-color: var(--surface-navy);
     border: 1px solid rgba(100, 255, 218, 0.05);
     border-radius: 8px;
-    padding: 24px 22px; /* Marginally down-scaled padding rules to shrink card height slightly */
-    display: flex;
-    flex-direction: column;
+    padding: 24px 22px;
+    display: grid;
+    grid-template-columns: 38px 1fr;
+    row-gap: 8px;
     position: relative;
     transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.3);
@@ -274,38 +275,37 @@ body {
 
 /* Document type decoration box layouts */
 .card-icon {
-    /* Icon resizing, color filters */
-    font-size: 32px;
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 28px;
     color: var(--accent-cyan);
-    margin-bottom: 12px; /* Restored breathing margin spaces below row 1 */
-    display: inline-flex;
-    align-items: center;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 2px;
 }
 
 /* Inside card headline text layouts */
 .card-title {
-    /* Header layouts */
-    position: absolute;
-    top: 24px; /* Matches your card container top padding metric */
-    left: 72px; /* Displaces text smoothly right next to the 32px icon width */
-    font-size: 18px;
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 17px;
     font-weight: 600;
     color: var(--text-primary);
-    margin-bottom: 0;
-    line-height: 32px; /* Matches icon height for perfect middle line alignments */
+    line-height: 1.3;
+    margin-bottom: 4px;
 }
 
 /* Inside card tracking label text indicator tags */
 .card-category {
-    /* Text category identifiers */
+    grid-column: 1 / span 2;
     font-size: 13px;
     color: var(--text-secondary);
-    margin-bottom: 12px;
+    margin-bottom: 4px;
 }
 
 /* Status tracking indicators (Processing vs Completed) */
 .card-status {
-    /* Status background shapes, conditional styling selectors */
+    grid-column: 1 / span 2;
     display: inline-block;
     align-self: flex-start;
     padding: 4px 10px;
@@ -314,7 +314,7 @@ body {
     letter-spacing: 0.5px;
     text-transform: uppercase;
     border-radius: 50px;
-    margin-bottom: 20px; /* Provides vertical padding separation above action links */
+    margin-bottom: 16px;
 }
 
 .status-processing {
@@ -331,6 +331,7 @@ body {
 
 /* Packaging button wrappers to stretch across the full bottom width */
 .card-actions, .admin-weekly-uploads, .nested-weeks {
+    grid-column: 1 / span 2;
     width: 100%;
 }
 
@@ -341,7 +342,6 @@ body {
 
 /* File hyperlink trigger tag elements */
 .card-link {
-    /* Dynamic bottom link offsets */
     margin-top: auto; /* Pushes link to the absolute bottom of the card */
     font-size: 14px;
     font-weight: 500;
@@ -364,7 +364,7 @@ body {
 .nested-weeks {
     display: flex;
     gap: 8px;
-    margin-top: auto; /* Pushes the layout elements neatly downwards */
+    margin-top: auto;
     padding-top: 0;
     border-top: none;
 }
@@ -402,7 +402,6 @@ body {
    ================================================================== */
 /* Page footer alignment wrappers */
 .footer {
-    /* Text alignment controls, top padding line spaces */
     padding: 50px 20px;
     border-top: 1px solid rgba(100, 255, 218, 0.05);
     text-align: center;
@@ -411,7 +410,6 @@ body {
 
 /* Primary trademark block texts */
 .footer-text {
-    /* Copyright tracking rules */
     font-size: 14px;
     color: var(--text-primary);
     margin-bottom: 8px;
@@ -419,7 +417,6 @@ body {
 
 /* Academic registration secondary description lines */
 .footer-subtext {
-    /* Institution data string colors */
     font-size: 12px;
     color: var(--text-secondary);
     letter-spacing: 0.5px;
