@@ -135,12 +135,61 @@ if (saveProfileBtn) {
     });
 }
 
-// Global Interceptor for Placeholder Clicks (Opens a clean tab instead of a browser alert)
+// Global Interceptor for Placeholder Clicks (Generates a dynamic Deep Ocean styled notice page)
 document.addEventListener('click', (e) => {
     const target = e.target.closest('.target-link, .weekly-link, #view-cv-btn');
     if (target && (target.getAttribute('href') === '#' || target.hasAttribute('data-placeholder'))) {
         e.preventDefault();
-        window.open('about:blank', '_blank');
+        
+        // Find document title dynamically
+        const card = target.closest('.document-card');
+        const docName = card ? (card.querySelector('.card-title')?.innerText || 'Document') : 'Curriculum Vitae';
+        
+        const placeholderHTML = `
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>${docName} - Pending Document</title>
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+                <style>
+                    body {
+                        margin: 0; padding: 0; min-height: 100vh;
+                        background: radial-gradient(ellipse at 50% 115%, #38bdf8 0%, #227093 10%, #112d4e 35%, #0a192f 70%, #020c1b 100%);
+                        color: #e6f1ff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        display: flex; justify-content: center; align-items: center; text-align: center;
+                    }
+                    .box {
+                        background-color: #112240; border: 1px solid rgba(100, 255, 218, 0.2);
+                        padding: 40px; border-radius: 12px; max-width: 480px; width: 90%;
+                        box-shadow: 0 20px 40px -15px rgba(2, 12, 27, 0.7);
+                    }
+                    i { font-size: 48px; color: #64ffda; margin-bottom: 20px; }
+                    h1 { font-size: 22px; margin-bottom: 12px; font-weight: 600; color: #e6f1ff; }
+                    p { font-size: 14px; color: #8892b0; line-height: 1.6; margin-bottom: 24px; }
+                    .badge {
+                        display: inline-block; background-color: rgba(241, 196, 15, 0.1);
+                        color: #f1c40f; border: 1px solid rgba(241, 196, 15, 0.2);
+                        padding: 6px 14px; border-radius: 50px; font-size: 12px; font-weight: 600;
+                        text-transform: uppercase; letter-spacing: 0.5px;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="box">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <h1>${docName}</h1>
+                    <span class="badge">Status: Processing</span>
+                    <p style="margin-top: 20px;">This academic document is currently undergoing verification or formatting. It will be made publicly accessible once uploaded.</p>
+                </div>
+            </body>
+            </html>
+        `;
+
+        const blob = new Blob([placeholderHTML], { type: 'text/html' });
+        const placeholderURL = URL.createObjectURL(blob);
+        window.open(placeholderURL, '_blank');
     }
 });
 
