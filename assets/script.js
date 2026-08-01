@@ -2,7 +2,7 @@
 // SUPABASE CONFIGURATION CONFIG (PASTE YOUR KEYS HERE)
 // ==================================================================
 const SUPABASE_URL = "https://llvemwugtoimbghualtr.supabase.co"; 
-const SUPABASE_ANON_KEY = "YOUR_ANON_PUBLIC_KEY_HERE"; // Put your copied anon public key string here
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxsdmVtd3VndG9pbWJnaHVhbHRyIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQzODMwNDgsImV4cCI6MjA5OTk1OTA0OH0.URCoD2Geq05czrpIbxgGDh-OiUxP9HfCZNmCPxwBEgY"; // Put your copied anon public key string here
 const BUCKET_NAME = "ojt-documents";
 
 // ==================================================================
