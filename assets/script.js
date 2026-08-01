@@ -8,7 +8,7 @@ const BUCKET_NAME = "ojt-documents";
 // ==================================================================
 // 1. FILTER SYSTEM ENGINE (TAB MECHANICS)
 // ==================================================================
-const filterButtons = document.querySelectorAll('.tab-btn:not(#admin-login-btn)');
+const filterButtons = document.querySelectorAll('.tab-btn:not(#admin-login-btn):not(#user-view-btn):not(#save-profile-btn)');
 const documentCards = document.querySelectorAll('.document-card');
 
 filterButtons.forEach(button => {
@@ -33,6 +33,7 @@ filterButtons.forEach(button => {
 // 2. ADMINISTRATIVE INLINE REDIRECT INTERACTION
 // ==================================================================
 const adminLoginBtn = document.getElementById('admin-login-btn');
+const userViewBtn = document.getElementById('user-view-btn');
 const cancelLoginBtn = document.getElementById('cancel-login-btn');
 const adminLoginSection = document.getElementById('admin-login-section');
 const heroSection = document.getElementById('overview');
@@ -41,8 +42,11 @@ const loginForm = document.getElementById('login-form');
 const passwordInput = document.getElementById('admin-password');
 
 const displayCompany = document.getElementById('display-company');
+const displayRole = document.getElementById('display-role');
 const displayHours = document.getElementById('display-hours');
 const adminCvUpload = document.getElementById('admin-cv-upload');
+const adminSaveBar = document.getElementById('admin-save-bar');
+const saveProfileBtn = document.getElementById('save-profile-btn');
 
 // Redirect from dashboard layout to login panel view layout
 adminLoginBtn.addEventListener('click', () => {
@@ -61,53 +65,85 @@ cancelLoginBtn.addEventListener('click', () => {
     passwordInput.style.borderColor = ''; // Reset custom border color style if any
 });
 
-// Handle password submission checking event triggers
-loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
+// Enable Admin Mode Controls
+function enableAdminMode() {
+    adminLoginBtn.style.display = 'none';
+    userViewBtn.style.display = 'inline-block';
+    if (adminSaveBar) adminSaveBar.style.display = 'block';
+
+    document.querySelectorAll('.admin-upload-btn, .admin-weekly-uploads').forEach(el => {
+        if (el.classList.contains('admin-weekly-uploads')) {
+            el.style.display = 'flex';
+        } else {
+            el.style.display = 'inline-block';
+        }
+    });
+
+    if (adminCvUpload) adminCvUpload.style.display = 'inline-block';
     
-    // Placeholder authentication key evaluation checker logic
-    if (passwordInput.value === '@ShimajirouTenma17') {
-        
-        // Show all administrative upload interface action controllers
-        document.querySelectorAll('.admin-upload-btn, .admin-weekly-uploads').forEach(el => {
-            if (el.classList.contains('admin-weekly-uploads')) {
-                el.style.display = 'flex';
-            } else {
-                el.style.display = 'inline-block';
-            }
-        });
-
-        // Enable profile editing controls if elements exist
-        if (adminCvUpload) adminCvUpload.style.display = 'inline-block';
-        
-        if (displayCompany) {
-            displayCompany.contentEditable = "true";
-            displayCompany.style.background = "rgba(100, 255, 218, 0.1)";
-            displayCompany.style.borderBottom = "1px dashed var(--accent-cyan)";
+    [displayCompany, displayRole, displayHours].forEach(el => {
+        if (el) {
+            el.contentEditable = "true";
+            el.style.background = "rgba(100, 255, 218, 0.1)";
+            el.style.borderBottom = "1px dashed var(--accent-cyan)";
         }
-        
-        if (displayHours) {
-            displayHours.contentEditable = "true";
-            displayHours.style.background = "rgba(100, 255, 218, 0.1)";
-            displayHours.style.borderBottom = "1px dashed var(--accent-cyan)";
-        }
-        
-        // Initialize the secure interactive upload listeners now that admin is verified
-        activateUploadListeners();
-        
-        // Close form panel layer views and restore presentation components quietly
-        cancelLoginBtn.click();
-    } else {
-        // Style the input border red silently as validation feedback instead of a pop-up
-        passwordInput.style.borderColor = '#ff4a5a';
-        passwordInput.value = '';
-    }
-});
+    });
 
-// Save changes locally when modifying company or hours
+    activateUploadListeners();
+}
+
+// Exit Admin Mode back to Read-Only User View
+function disableAdminMode() {
+    adminLoginBtn.style.display = 'inline-block';
+    userViewBtn.style.display = 'none';
+    if (adminSaveBar) adminSaveBar.style.display = 'none';
+
+    document.querySelectorAll('.admin-upload-btn, .admin-weekly-uploads').forEach(el => {
+        el.style.display = 'none';
+    });
+
+    if (adminCvUpload) adminCvUpload.style.display = 'none';
+
+    [displayCompany, displayRole, displayHours].forEach(el => {
+        if (el) {
+            el.contentEditable = "false";
+            el.style.background = "transparent";
+            el.style.borderBottom = "none";
+        }
+    });
+}
+
+userViewBtn.addEventListener('click', disableAdminMode);
+
+// Manual Save Button Logic
+if (saveProfileBtn) {
+    saveProfileBtn.addEventListener('click', () => {
+        if (displayCompany) localStorage.setItem('profile_company', displayCompany.innerText);
+        if (displayRole) localStorage.setItem('profile_role', displayRole.innerText);
+        if (displayHours) localStorage.setItem('profile_hours', displayHours.innerText);
+
+        const originalText = saveProfileBtn.innerHTML;
+        saveProfileBtn.innerHTML = `<i class="fa-solid fa-check"></i> Saved!`;
+        saveProfileBtn.style.borderColor = '#2ecc71';
+        saveProfileBtn.style.color = '#2ecc71';
+
+        setTimeout(() => {
+            saveProfileBtn.innerHTML = originalText;
+            saveProfileBtn.style.borderColor = 'var(--accent-cyan)';
+            saveProfileBtn.style.color = 'var(--accent-cyan)';
+        }, 2000);
+    });
+}
+
+// Auto-save typing listeners
 if (displayCompany) {
     displayCompany.addEventListener('input', () => {
         localStorage.setItem('profile_company', displayCompany.innerText);
+    });
+}
+if (displayRole) {
+    displayRole.addEventListener('input', () => {
+        localStorage.setItem('profile_role', displayRole.innerText);
     });
 }
 if (displayHours) {
@@ -115,6 +151,19 @@ if (displayHours) {
         localStorage.setItem('profile_hours', displayHours.innerText);
     });
 }
+
+// Handle password submission checking event triggers
+loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    if (passwordInput.value === '@ShimajirouTenma17') {
+        enableAdminMode();
+        cancelLoginBtn.click();
+    } else {
+        passwordInput.style.borderColor = '#ff4a5a';
+        passwordInput.value = '';
+    }
+});
 
 // ==================================================================
 // 3. CLOUD STORAGE UPLOAD & STATE PERSISTENCE ENGINE
@@ -269,6 +318,9 @@ function restorePersistedState() {
     // Restore profile configuration parameters
     const savedCompany = localStorage.getItem('profile_company');
     if (savedCompany && displayCompany) displayCompany.innerText = savedCompany;
+
+    const savedRole = localStorage.getItem('profile_role');
+    if (savedRole && displayRole) displayRole.innerText = savedRole;
 
     const savedHours = localStorage.getItem('profile_hours');
     if (savedHours && displayHours) displayHours.innerText = savedHours;

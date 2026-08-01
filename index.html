@@ -19,8 +19,9 @@
                 <li><a href="#overview" class="nav-item">Overview</a></li>
                 <li><a href="#documents" class="nav-item">Documents</a></li>
                 <li><a href="#footer" class="nav-item">Contact</a></li>
-                <!-- Admin Gate Action Toggle -->
+                <!-- Admin Gate Action Toggle & User View Return Toggle -->
                 <li><button id="admin-login-btn" class="tab-btn" style="padding: 6px 12px; font-size: 12px; border-color: rgba(100, 255, 218, 0.15);"><i class="fa-solid fa-lock"></i> Admin</button></li>
+                <li><button id="user-view-btn" class="tab-btn" style="display: none; padding: 6px 12px; font-size: 12px; border-color: rgba(100, 255, 218, 0.3); color: var(--accent-cyan);"><i class="fa-solid fa-eye"></i> User View</button></li>
             </ul>
         </nav>
 
@@ -40,17 +41,27 @@
                 </div>
                 
                 <!-- Subheaders indicating target host company, role, and OJT hour tracking status -->
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%; max-width: 800px; margin-bottom: 40px; background-color: var(--surface-navy); padding: 30px; border-radius: 8px; border: 1px solid rgba(100, 255, 218, 0.05); box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.5); text-align: left;">
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%; max-width: 800px; margin-bottom: 25px; background-color: var(--surface-navy); padding: 30px; border-radius: 8px; border: 1px solid rgba(100, 255, 218, 0.05); box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.5); text-align: left;">
                     <div style="font-size: 15px; color: var(--text-primary); display: flex; align-items: center;">
                         <i class="fa-solid fa-building" style="color: var(--accent-cyan); margin-right: 10px; width: 20px;"></i>
                         <strong>Company:&nbsp;</strong> <span id="display-company" contenteditable="false" style="outline: none; transition: background 0.3s; padding: 2px 6px; border-radius: 4px;">Applying</span>
                     </div>
-                    <div style="font-size: 15px; color: var(--text-primary);"><i class="fa-solid fa-user-gear" style="color: var(--accent-cyan); margin-right: 10px; width: 20px;"></i><strong>Role:</strong> Computer Engineering Intern</div>
+                    <div style="font-size: 15px; color: var(--text-primary); display: flex; align-items: center;">
+                        <i class="fa-solid fa-user-gear" style="color: var(--accent-cyan); margin-right: 10px; width: 20px;"></i>
+                        <strong>Role:&nbsp;</strong> <span id="display-role" contenteditable="false" style="outline: none; transition: background 0.3s; padding: 2px 6px; border-radius: 4px;">Computer Engineering Intern</span>
+                    </div>
                     <div style="font-size: 15px; color: var(--text-primary);"><i class="fa-solid fa-clock" style="color: var(--accent-cyan); margin-right: 10px; width: 20px;"></i><strong>OJT Hours:</strong> 300 Hours Required</div>
                     <div style="font-size: 15px; color: var(--text-primary); display: flex; align-items: center;">
                         <i class="fa-solid fa-file-invoice" style="color: var(--accent-cyan); margin-right: 10px; width: 20px;"></i>
                         <strong>Status:&nbsp;</strong> <span id="display-hours" contenteditable="false" style="outline: none; transition: background 0.3s; padding: 2px 6px; border-radius: 4px;">0</span> / 300 Hours Rendered
                     </div>
+                </div>
+
+                <!-- Admin Save Button Bar -->
+                <div id="admin-save-bar" style="display: none; margin-bottom: 25px;">
+                    <button id="save-profile-btn" class="tab-btn" style="color: var(--accent-cyan); border-color: var(--accent-cyan); padding: 8px 18px; font-size: 13px;">
+                        <i class="fa-solid fa-floppy-disk"></i> Save Profile Changes
+                    </button>
                 </div>
                 
                 <!-- Quick-action interactive button linking to CV -->
