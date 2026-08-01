@@ -131,7 +131,8 @@ if (saveProfileBtn) {
             saveProfileBtn.innerHTML = originalText;
             saveProfileBtn.style.borderColor = 'var(--accent-cyan)';
             saveProfileBtn.style.color = 'var(--accent-cyan)';
-        }, 2000);
+            disableAdminMode();
+        }, 1500);
     });
 }
 
@@ -141,7 +142,6 @@ document.addEventListener('click', (e) => {
     if (target && (target.getAttribute('href') === '#' || target.hasAttribute('data-placeholder'))) {
         e.preventDefault();
         
-        // Find document title dynamically
         const card = target.closest('.document-card');
         const docName = card ? (card.querySelector('.card-title')?.innerText || 'Document') : 'Curriculum Vitae';
         
@@ -210,19 +210,27 @@ loginForm.addEventListener('submit', (e) => {
 // 3. CLOUD STORAGE UPLOAD & STATE PERSISTENCE ENGINE
 // ==================================================================
 
-// Setup file selection capture listeners on all hidden input elements
+let listenersActivated = false;
+
 function activateUploadListeners() {
+    if (listenersActivated) return; 
+    listenersActivated = true;
+
     // Single document cards upload handler
     document.querySelectorAll('.secure-file-input').forEach(input => {
         input.addEventListener('change', async (e) => {
             const file = e.target.files[0];
             if (!file) return;
 
+            if (SUPABASE_ANON_KEY === "YOUR_ANON_PUBLIC_KEY_HERE") {
+                console.error("Missing Supabase Key! Please paste your SUPABASE_ANON_KEY at the top of script.js");
+                return;
+            }
+
             const card = input.closest('.document-card');
             const cardId = card.getAttribute('data-id');
             const uploadLabel = input.closest('.admin-upload-btn');
             
-            // Visual loading state updates
             const originalText = uploadLabel.innerHTML;
             uploadLabel.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Uploading...`;
 
@@ -231,30 +239,40 @@ function activateUploadListeners() {
             const uploadUrl = `${SUPABASE_URL}/storage/v1/object/${BUCKET_NAME}/${storagePath}`;
 
             try {
-                // Send standard binary file upload straight to the Supabase REST API
                 const response = await fetch(uploadUrl, {
                     method: 'POST',
                     headers: {
                         'apikey': SUPABASE_ANON_KEY,
                         'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-                        'x-upsert': 'true' // Automatically overwrites existing documents smoothly
+                        'x-upsert': 'true'
                     },
                     body: file
                 });
 
                 if (response.ok) {
                     const publicUrl = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${storagePath}`;
-                    
-                    // Update state variables locally so links load automatically next time
                     localStorage.setItem(`url_${cardId}`, publicUrl);
                     updateCardUI(card, publicUrl);
+
+                    uploadLabel.innerHTML = `<i class="fa-solid fa-check"></i> File Uploaded!`;
+                    uploadLabel.style.borderColor = '#2ecc71';
+                    uploadLabel.style.color = '#2ecc71';
+
+                    setTimeout(() => {
+                        uploadLabel.innerHTML = originalText;
+                        uploadLabel.style.borderColor = '';
+                        uploadLabel.style.color = '';
+                        disableAdminMode();
+                    }, 1500);
                 } else {
                     console.error('Cloud rejected upload processing routines with status:', response.status);
+                    uploadLabel.innerHTML = originalText;
                 }
             } catch (err) {
                 console.error('Network or Upload Error:', err);
-            } finally {
                 uploadLabel.innerHTML = originalText;
+            } finally {
+                input.value = '';
             }
         });
     });
@@ -291,11 +309,25 @@ function activateUploadListeners() {
                         viewCvBtn.href = publicUrl;
                         viewCvBtn.removeAttribute('data-placeholder');
                     }
+
+                    adminCvUpload.innerHTML = `<i class="fa-solid fa-check"></i> CV Uploaded!`;
+                    adminCvUpload.style.borderColor = '#2ecc71';
+                    adminCvUpload.style.color = '#2ecc71';
+
+                    setTimeout(() => {
+                        adminCvUpload.innerHTML = originalText;
+                        adminCvUpload.style.borderColor = '';
+                        adminCvUpload.style.color = '';
+                        disableAdminMode();
+                    }, 1500);
+                } else {
+                    adminCvUpload.innerHTML = originalText;
                 }
             } catch (err) {
                 console.error(err);
-            } finally {
                 adminCvUpload.innerHTML = originalText;
+            } finally {
+                cvInput.value = '';
             }
         });
     }
@@ -308,6 +340,10 @@ function activateUploadListeners() {
 
             const card = input.closest('.document-card');
             const weekNum = input.getAttribute('data-week');
+            const label = input.parentElement;
+            const originalText = label.innerHTML;
+            label.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i>`;
+
             const fileExt = file.name.split('.').pop();
             const storagePath = `week_${weekNum}.${fileExt}`;
             const uploadUrl = `${SUPABASE_URL}/storage/v1/object/${BUCKET_NAME}/${storagePath}`;
@@ -332,11 +368,26 @@ function activateUploadListeners() {
                         weekLink.href = publicUrl;
                         weekLink.removeAttribute('data-placeholder');
                     }
+
+                    label.innerHTML = `<i class="fa-solid fa-check"></i> W${weekNum}`;
+                    label.style.borderColor = '#2ecc71';
+                    label.style.color = '#2ecc71';
+
+                    setTimeout(() => {
+                        label.innerHTML = originalText;
+                        label.style.borderColor = '';
+                        label.style.color = '';
+                        disableAdminMode();
+                    }, 1500);
                 } else {
                     console.error('Weekly upload rejected with status:', response.status);
+                    label.innerHTML = originalText;
                 }
             } catch (err) {
                 console.error('Network or Upload Error:', err);
+                label.innerHTML = originalText;
+            } finally {
+                input.value = '';
             }
         });
     });
