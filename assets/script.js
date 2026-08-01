@@ -21,7 +21,7 @@ filterButtons.forEach(button => {
         documentCards.forEach(card => {
             const cardCategory = card.getAttribute('data-category');
             if (selectedFilter === 'all' || selectedFilter === cardCategory) {
-                card.style.display = 'flex';
+                card.style.display = 'grid';
             } else {
                 card.style.display = 'none';
             }
@@ -62,7 +62,7 @@ cancelLoginBtn.addEventListener('click', () => {
     heroSection.style.display = 'flex';
     mainContainer.style.display = 'block';
     passwordInput.value = '';
-    passwordInput.style.borderColor = ''; // Reset custom border color style if any
+    passwordInput.style.borderColor = ''; 
 });
 
 // Enable Admin Mode Controls
@@ -135,22 +135,14 @@ if (saveProfileBtn) {
     });
 }
 
-// Auto-save typing listeners
-if (displayCompany) {
-    displayCompany.addEventListener('input', () => {
-        localStorage.setItem('profile_company', displayCompany.innerText);
-    });
-}
-if (displayRole) {
-    displayRole.addEventListener('input', () => {
-        localStorage.setItem('profile_role', displayRole.innerText);
-    });
-}
-if (displayHours) {
-    displayHours.addEventListener('input', () => {
-        localStorage.setItem('profile_hours', displayHours.innerText);
-    });
-}
+// Global Interceptor for Placeholder Clicks
+document.addEventListener('click', (e) => {
+    const target = e.target.closest('.target-link, .weekly-link, #view-cv-btn');
+    if (target && (target.getAttribute('href') === '#' || target.hasAttribute('data-placeholder'))) {
+        e.preventDefault();
+        alert('Notice: This document is currently processing and will be available once uploaded.');
+    }
+});
 
 // Handle password submission checking event triggers
 loginForm.addEventListener('submit', (e) => {
@@ -181,7 +173,6 @@ function activateUploadListeners() {
             const cardId = card.getAttribute('data-id');
             const uploadLabel = input.closest('.admin-upload-btn');
             
-            // Visual loading state updates
             const originalText = uploadLabel.innerHTML;
             uploadLabel.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Uploading...`;
 
@@ -190,21 +181,18 @@ function activateUploadListeners() {
             const uploadUrl = `${SUPABASE_URL}/storage/v1/object/${BUCKET_NAME}/${storagePath}`;
 
             try {
-                // Send standard binary file upload straight to the Supabase REST API
                 const response = await fetch(uploadUrl, {
                     method: 'POST',
                     headers: {
                         'apikey': SUPABASE_ANON_KEY,
                         'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-                        'x-upsert': 'true' // Automatically overwrites existing documents smoothly
+                        'x-upsert': 'true' 
                     },
                     body: file
                 });
 
                 if (response.ok) {
                     const publicUrl = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${storagePath}`;
-                    
-                    // Update state variables locally so links load automatically next time
                     localStorage.setItem(`url_${cardId}`, publicUrl);
                     updateCardUI(card, publicUrl);
                 } else {
@@ -246,7 +234,10 @@ function activateUploadListeners() {
                     const publicUrl = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${storagePath}`;
                     localStorage.setItem('url_cv', publicUrl);
                     const viewCvBtn = document.getElementById('view-cv-btn');
-                    if (viewCvBtn) viewCvBtn.href = publicUrl;
+                    if (viewCvBtn) {
+                        viewCvBtn.href = publicUrl;
+                        viewCvBtn.removeAttribute('data-placeholder');
+                    }
                 }
             } catch (err) {
                 console.error(err);
@@ -283,11 +274,10 @@ function activateUploadListeners() {
                     const publicUrl = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${storagePath}`;
                     localStorage.setItem(`url_week_${weekNum}`, publicUrl);
                     
-                    // Display and link the target hidden nested weekly text anchor
                     const weekLink = card.querySelector(`.w-link[data-week="${weekNum}"]`);
                     if (weekLink) {
                         weekLink.href = publicUrl;
-                        weekLink.style.display = 'flex';
+                        weekLink.removeAttribute('data-placeholder');
                     }
                 } else {
                     console.error('Weekly upload rejected with status:', response.status);
@@ -309,7 +299,7 @@ function updateCardUI(card, url) {
     const targetLink = card.querySelector('.target-link');
     if (targetLink) {
         targetLink.href = url;
-        targetLink.style.display = 'inline-flex';
+        targetLink.removeAttribute('data-placeholder');
     }
 }
 
@@ -327,7 +317,10 @@ function restorePersistedState() {
 
     const savedCvUrl = localStorage.getItem('url_cv');
     const viewCvBtn = document.getElementById('view-cv-btn');
-    if (savedCvUrl && viewCvBtn) viewCvBtn.href = savedCvUrl;
+    if (savedCvUrl && viewCvBtn) {
+        viewCvBtn.href = savedCvUrl;
+        viewCvBtn.removeAttribute('data-placeholder');
+    }
 
     documentCards.forEach(card => {
         const cardId = card.getAttribute('data-id');
@@ -345,7 +338,7 @@ function restorePersistedState() {
             const savedWeekUrl = localStorage.getItem(`url_week_${wNum}`);
             if (savedWeekUrl) {
                 link.href = savedWeekUrl;
-                link.style.display = 'flex';
+                link.removeAttribute('data-placeholder');
                 standardVerified = true;
             }
         });
@@ -357,5 +350,4 @@ function restorePersistedState() {
     });
 }
 
-// Run state updates instantly on application generation entry points
 restorePersistedState();
