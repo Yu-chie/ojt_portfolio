@@ -135,12 +135,12 @@ if (saveProfileBtn) {
     });
 }
 
-// Global Interceptor for Placeholder Clicks
+// Global Interceptor for Placeholder Clicks (Opens a clean tab instead of a browser alert)
 document.addEventListener('click', (e) => {
     const target = e.target.closest('.target-link, .weekly-link, #view-cv-btn');
     if (target && (target.getAttribute('href') === '#' || target.hasAttribute('data-placeholder'))) {
         e.preventDefault();
-        alert('Notice: This document is currently processing and will be available once uploaded.');
+        window.open('about:blank', '_blank');
     }
 });
 
@@ -173,6 +173,7 @@ function activateUploadListeners() {
             const cardId = card.getAttribute('data-id');
             const uploadLabel = input.closest('.admin-upload-btn');
             
+            // Visual loading state updates
             const originalText = uploadLabel.innerHTML;
             uploadLabel.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Uploading...`;
 
@@ -181,18 +182,21 @@ function activateUploadListeners() {
             const uploadUrl = `${SUPABASE_URL}/storage/v1/object/${BUCKET_NAME}/${storagePath}`;
 
             try {
+                // Send standard binary file upload straight to the Supabase REST API
                 const response = await fetch(uploadUrl, {
                     method: 'POST',
                     headers: {
                         'apikey': SUPABASE_ANON_KEY,
                         'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-                        'x-upsert': 'true' 
+                        'x-upsert': 'true' // Automatically overwrites existing documents smoothly
                     },
                     body: file
                 });
 
                 if (response.ok) {
                     const publicUrl = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${storagePath}`;
+                    
+                    // Update state variables locally so links load automatically next time
                     localStorage.setItem(`url_${cardId}`, publicUrl);
                     updateCardUI(card, publicUrl);
                 } else {
