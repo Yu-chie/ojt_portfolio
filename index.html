@@ -41,14 +41,26 @@
                 
                 <!-- Subheaders indicating target host company, role, and OJT hour tracking status -->
                 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; width: 100%; max-width: 800px; margin-bottom: 40px; background-color: var(--surface-navy); padding: 30px; border-radius: 8px; border: 1px solid rgba(100, 255, 218, 0.05); box-shadow: 0 10px 30px -15px rgba(2, 12, 27, 0.5); text-align: left;">
-                    <div style="font-size: 15px; color: var(--text-primary);"><i class="fa-solid fa-building" style="color: var(--accent-cyan); margin-right: 10px; width: 20px;"></i><strong>Company:</strong> Applying</div>
+                    <div style="font-size: 15px; color: var(--text-primary); display: flex; align-items: center;">
+                        <i class="fa-solid fa-building" style="color: var(--accent-cyan); margin-right: 10px; width: 20px;"></i>
+                        <strong>Company:&nbsp;</strong> <span id="display-company" contenteditable="false" style="outline: none; transition: background 0.3s; padding: 2px 6px; border-radius: 4px;">Applying</span>
+                    </div>
                     <div style="font-size: 15px; color: var(--text-primary);"><i class="fa-solid fa-user-gear" style="color: var(--accent-cyan); margin-right: 10px; width: 20px;"></i><strong>Role:</strong> Computer Engineering Intern</div>
                     <div style="font-size: 15px; color: var(--text-primary);"><i class="fa-solid fa-clock" style="color: var(--accent-cyan); margin-right: 10px; width: 20px;"></i><strong>OJT Hours:</strong> 300 Hours Required</div>
-                    <div style="font-size: 15px; color: var(--text-primary);"><i class="fa-solid fa-file-invoice" style="color: var(--accent-cyan); margin-right: 10px; width: 20px;"></i><strong>Status:</strong> 0 / 300 Hours Rendered</div>
+                    <div style="font-size: 15px; color: var(--text-primary); display: flex; align-items: center;">
+                        <i class="fa-solid fa-file-invoice" style="color: var(--accent-cyan); margin-right: 10px; width: 20px;"></i>
+                        <strong>Status:&nbsp;</strong> <span id="display-hours" contenteditable="false" style="outline: none; transition: background 0.3s; padding: 2px 6px; border-radius: 4px;">0</span> / 300 Hours Rendered
+                    </div>
                 </div>
                 
                 <!-- Quick-action interactive button linking to CV -->
-                <a href="DRIVE_LINK_CV" class="btn-cv" target="_blank">View Curriculum Vitae <i class="fa-solid fa-arrow-right"></i></a>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 12px; width: 100%;">
+                    <a href="#" id="view-cv-btn" class="btn-cv" target="_blank">View Curriculum Vitae <i class="fa-solid fa-arrow-right"></i></a>
+                    <label id="admin-cv-upload" class="admin-upload-btn" style="display: none; color: var(--accent-cyan); font-size: 12px; cursor: pointer; border: 1px dashed var(--accent-cyan); padding: 8px 24px; text-align: center; border-radius: 4px; max-width: 280px; width: 100%;">
+                        <i class="fa-solid fa-cloud-arrow-up"></i> Update CV File
+                        <input type="file" id="secure-cv-input" accept=".pdf" style="display: none;">
+                    </label>
+                </div>
             </div>
         </section>
     </header>

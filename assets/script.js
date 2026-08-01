@@ -40,6 +40,10 @@ const mainContainer = document.getElementById('documents');
 const loginForm = document.getElementById('login-form');
 const passwordInput = document.getElementById('admin-password');
 
+const displayCompany = document.getElementById('display-company');
+const displayHours = document.getElementById('display-hours');
+const adminCvUpload = document.getElementById('admin-cv-upload');
+
 // Redirect from dashboard layout to login panel view layout
 adminLoginBtn.addEventListener('click', () => {
     heroSection.style.display = 'none';
@@ -72,6 +76,21 @@ loginForm.addEventListener('submit', (e) => {
                 el.style.display = 'inline-block';
             }
         });
+
+        // Enable profile editing controls if elements exist
+        if (adminCvUpload) adminCvUpload.style.display = 'inline-block';
+        
+        if (displayCompany) {
+            displayCompany.contentEditable = "true";
+            displayCompany.style.background = "rgba(100, 255, 218, 0.1)";
+            displayCompany.style.borderBottom = "1px dashed var(--accent-cyan)";
+        }
+        
+        if (displayHours) {
+            displayHours.contentEditable = "true";
+            displayHours.style.background = "rgba(100, 255, 218, 0.1)";
+            displayHours.style.borderBottom = "1px dashed var(--accent-cyan)";
+        }
         
         // Initialize the secure interactive upload listeners now that admin is verified
         activateUploadListeners();
@@ -85,6 +104,18 @@ loginForm.addEventListener('submit', (e) => {
     }
 });
 
+// Save changes locally when modifying company or hours
+if (displayCompany) {
+    displayCompany.addEventListener('input', () => {
+        localStorage.setItem('profile_company', displayCompany.innerText);
+    });
+}
+if (displayHours) {
+    displayHours.addEventListener('input', () => {
+        localStorage.setItem('profile_hours', displayHours.innerText);
+    });
+}
+
 // ==================================================================
 // 3. CLOUD STORAGE UPLOAD & STATE PERSISTENCE ENGINE
 // ==================================================================
@@ -92,11 +123,6 @@ loginForm.addEventListener('submit', (e) => {
 // Setup file selection capture listeners on all hidden input elements
 function activateUploadListeners() {
     // Single document cards upload handler
-    document.querySelectorAll('.secure-file-input').forEach(input => {
-        // Clear old event listeners to prevent duplicate uploads
-        input.replaceWith(input.cloneNode(true));
-    });
-
     document.querySelectorAll('.secure-file-input').forEach(input => {
         input.addEventListener('change', async (e) => {
             const file = e.target.files[0];
@@ -133,15 +159,53 @@ function activateUploadListeners() {
                     localStorage.setItem(`url_${cardId}`, publicUrl);
                     updateCardUI(card, publicUrl);
                 } else {
-                    console.error('Cloud rejected upload processing routines.');
+                    console.error('Cloud rejected upload processing routines with status:', response.status);
                 }
             } catch (err) {
-                console.error(err);
+                console.error('Network or Upload Error:', err);
             } finally {
                 uploadLabel.innerHTML = originalText;
             }
         });
     });
+
+    // Dynamic CV Storage Handler
+    const cvInput = document.getElementById('secure-cv-input');
+    if (cvInput) {
+        cvInput.addEventListener('change', async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const originalText = adminCvUpload.innerHTML;
+            adminCvUpload.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Uploading CV...`;
+
+            const storagePath = `curriculum_vitae.pdf`;
+            const uploadUrl = `${SUPABASE_URL}/storage/v1/object/${BUCKET_NAME}/${storagePath}`;
+
+            try {
+                const response = await fetch(uploadUrl, {
+                    method: 'POST',
+                    headers: {
+                        'apikey': SUPABASE_ANON_KEY,
+                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+                        'x-upsert': 'true'
+                    },
+                    body: file
+                });
+
+                if (response.ok) {
+                    const publicUrl = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${storagePath}`;
+                    localStorage.setItem('url_cv', publicUrl);
+                    const viewCvBtn = document.getElementById('view-cv-btn');
+                    if (viewCvBtn) viewCvBtn.href = publicUrl;
+                }
+            } catch (err) {
+                console.error(err);
+            } finally {
+                adminCvUpload.innerHTML = originalText;
+            }
+        });
+    }
 
     // Nested weekly reports upload handler
     document.querySelectorAll('.secure-week-input').forEach(input => {
@@ -176,9 +240,11 @@ function activateUploadListeners() {
                         weekLink.href = publicUrl;
                         weekLink.style.display = 'flex';
                     }
+                } else {
+                    console.error('Weekly upload rejected with status:', response.status);
                 }
             } catch (err) {
-                console.error(err);
+                console.error('Network or Upload Error:', err);
             }
         });
     });
@@ -200,6 +266,17 @@ function updateCardUI(card, url) {
 
 // Scan and recover document values when portfolio loads up
 function restorePersistedState() {
+    // Restore profile configuration parameters
+    const savedCompany = localStorage.getItem('profile_company');
+    if (savedCompany && displayCompany) displayCompany.innerText = savedCompany;
+
+    const savedHours = localStorage.getItem('profile_hours');
+    if (savedHours && displayHours) displayHours.innerText = savedHours;
+
+    const savedCvUrl = localStorage.getItem('url_cv');
+    const viewCvBtn = document.getElementById('view-cv-btn');
+    if (savedCvUrl && viewCvBtn) viewCvBtn.href = savedCvUrl;
+
     documentCards.forEach(card => {
         const cardId = card.getAttribute('data-id');
         const savedUrl = localStorage.getItem(`url_${cardId}`);
